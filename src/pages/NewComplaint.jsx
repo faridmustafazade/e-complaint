@@ -385,7 +385,7 @@ const NewComplaint = () => {
                       onChange={(e) => setValues(e.target.value)}
                       type="text"
                       className={`w-[70%] transition-opacity duration-300 ${
-                        open == false && "hidden"
+                        open === false && "hidden"
                       } outline-none`}
                       placeholder="Küçəni əlavə edin..."
                     />

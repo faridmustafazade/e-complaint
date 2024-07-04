@@ -15,29 +15,31 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`sidebar fixed left-0 h-[100vh] z-[999] pt-5 bg-[#eaebed] ${
-          click ? "w-[16%]" : "w-[5%]"
+        className={`sidebar fixed left-0 h-[100vh] w-[100%] z-[999] pt-5 bg-[#eaebed] ${
+          click ? "md:w-[16%]" : "md:w-[5%]"
         } shadow`}
       >
         <div className="flex flex-col items-center w-full">
-          <div className="flex items-center gap-5">
-            <img
-              className={`w-40 ${click ? "inline" : "hidden"}`}
-              src={logo}
-              alt=""
-            />
-            <IoMenu
-              onClick={handleClick}
-              className={`cursor-pointer text-2xl ${
-                click ? "hidden" : "block"
-              }`}
-            />
-            <BiMenuAltRight
-              onClick={handleClick}
-              className={`cursor-pointer text-2xl ${
-                click ? "block" : "hidden"
-              }`}
-            />
+          <div className="w-full flex items-center justify-center">
+            <div className="flex items-center gap-5">
+              <img
+                className={`w-[70%] ${click ? "inline" : "hidden"}`}
+                src={logo}
+                alt=""
+              />
+              <IoMenu
+                onClick={handleClick}
+                className={`cursor-pointer text-2xl ${
+                  click ? "hidden" : "block"
+                }`}
+              />
+              <BiMenuAltRight
+                onClick={handleClick}
+                className={`cursor-pointer text-2xl w-[30%] ${
+                  click ? "block" : "hidden"
+                }`}
+              />
+            </div>
           </div>
           <div className="mt-10 flex flex-col gap-3">
             <Link

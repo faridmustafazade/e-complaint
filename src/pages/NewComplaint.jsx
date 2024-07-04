@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { LuUpload } from "react-icons/lu";
-import { FaCirclePlus } from "react-icons/fa6";
+import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { PiTrashSimpleFill } from "react-icons/pi";
 import { Character, Company, Field_Of_Action } from "../data/Complaint";
-
+import "../index.css";
 const NewComplaint = () => {
   const [type, setType] = useState(null);
   const [city, setCity] = useState(null);
+  const [rayon, setRayon] = useState(null);
+  const [values, setValues] = useState("");
+  const [open, setOpen] = useState(false);
   const [characteristic, setCharacteristic] = useState(null);
   const [fileContent, setFileContent] = useState(null);
   const [choose, setChoose] = useState(false);
@@ -53,7 +56,7 @@ const NewComplaint = () => {
                       setType(e.target.value);
                     }}
                     type="text"
-                    className=" border p-2 rounded-md"
+                    className="text-sm border p-2 rounded-md"
                   >
                     <option disabled selected>
                       Fəaliyyət sahəsi
@@ -74,7 +77,7 @@ const NewComplaint = () => {
                   <select
                     disabled={type === null && true}
                     type="text"
-                    className=" border p-2 rounded-md"
+                    className="text-sm border p-2 rounded-md"
                   >
                     <option disabled selected>
                       Şikayətçi olduğunuz şirkəti seçin
@@ -102,7 +105,7 @@ const NewComplaint = () => {
                   <select
                     disabled={type === null && true}
                     type="text"
-                    className="border p-2 rounded-md"
+                    className="text-sm border p-2 rounded-md"
                     onChange={(e) => {
                       setCharacteristic(e.target.value);
                     }}
@@ -137,7 +140,7 @@ const NewComplaint = () => {
                   <select
                     disabled={characteristic === null && true}
                     type="text"
-                    className=" border p-2 rounded-md"
+                    className="text-sm border p-2 rounded-md"
                   >
                     <option disabled selected>
                       Şikayət mövzusu
@@ -273,7 +276,7 @@ const NewComplaint = () => {
                     name=""
                     id=""
                     onChange={(e) => setCity(e.target.value)}
-                    className="border p-2 rounded-md"
+                    className="text-sm border p-2 rounded-md"
                   >
                     <option value="" disabled selected>
                       Şəhəri seçin
@@ -283,10 +286,20 @@ const NewComplaint = () => {
                   </select>
                 </div>
                 <div className="w-[24%] flex flex-col gap-3">
-                  <label htmlFor="">*Rayonu seçin</label>
+                  <label
+                    htmlFor=""
+                    className={`${
+                      city == null
+                        ? "text-[#908080]"
+                        : city !== "Baku" && "text-[#908080]"
+                    }`}
+                  >
+                    *Rayonu seçin
+                  </label>
                   <select
                     disabled={city === "Baku" ? false : true}
-                    className="border p-2 rounded-md"
+                    onChange={(e) => setRayon(e.target.value)}
+                    className="text-sm border p-2 rounded-md"
                     name=""
                     id=""
                   >
@@ -302,18 +315,81 @@ const NewComplaint = () => {
                   </select>
                 </div>
                 <div className="w-[24%] flex flex-col gap-3">
-                  <label htmlFor="">*Küçəni / Kəndi seçin</label>
+                  <label
+                    htmlFor=""
+                    className={`${
+                      city !== null
+                        ? city === "Baku" && rayon == null && "text-[#908080]"
+                        : "text-[#908080]"
+                    }`}
+                  >
+                    *Küçəni / Kəndi seçin
+                  </label>
                   <input
+                    value={values}
+                    disabled={
+                      city == null
+                        ? true
+                        : city === "Baku"
+                        ? rayon == null
+                          ? true
+                          : false
+                        : false
+                    }
                     type="text"
-                    className=" border p-2 rounded-md"
+                    className={`border p-2 rounded-md ${
+                      city !== null &&
+                      (city === "Baku"
+                        ? rayon !== null && "placeholder:text-gray-600"
+                        : "placeholder:text-gray-600")
+                    } `}
                     placeholder="Küçəni / Kəndi seçin"
                   />
                 </div>
                 <div className="w-[24%] flex flex-col gap-3 items-start">
-                  <label htmlFor="">*Yeni küçə / kənd əlavə edin</label>
-                  <div className="shadow p-3 rounded-lg">
-                    <FaCirclePlus className="text-4xl" />
-                  </div>
+                  <label
+                    htmlFor=""
+                    className={`${
+                      city == null
+                        ? "text-[#908080]"
+                        : city === "Baku" && rayon == null && "text-[#908080]"
+                    }`}
+                  >
+                    *Yeni küçə / kənd əlavə edin
+                  </label>
+                  <button
+                    disabled={
+                      city == null
+                        ? true
+                        : city === "Baku" && rayon == null && true
+                    }
+                    className={`flex items-center ${
+                      open ? "justify-start" : "justify-center"
+                    } shadow gap-2 p-3 rounded-lg transition-width duration-300 ${
+                      open ? "w-56" : "w-16"
+                    }`}
+                  >
+                    {open ? (
+                      <FaCircleMinus
+                        onClick={() => setOpen(!open)}
+                        className={`text-4xl cursor-pointer`}
+                      />
+                    ) : (
+                      <FaCirclePlus
+                        onClick={() => setOpen(!open)}
+                        className={`text-4xl cursor-pointer`}
+                      />
+                    )}
+
+                    <input
+                      onChange={(e) => setValues(e.target.value)}
+                      type="text"
+                      className={`w-[70%] transition-opacity duration-300 ${
+                        open == false && "hidden"
+                      } outline-none`}
+                      placeholder="Küçəni əlavə edin..."
+                    />
+                  </button>
                 </div>
               </div>
               <div className="flex justify-between">

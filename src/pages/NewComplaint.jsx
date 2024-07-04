@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LuUpload } from "react-icons/lu";
 import { FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
-import { IoTrashBinSharp } from "react-icons/io5";
+import { PiTrashSimpleFill } from "react-icons/pi";
 import { Character, Company, Field_Of_Action } from "../data/Complaint";
 
 const NewComplaint = () => {
@@ -245,7 +245,7 @@ const NewComplaint = () => {
                   ) : (
                     <div className="relative">
                       <div className="absolute inset-0 bg-black bg-opacity-40 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
-                        <IoTrashBinSharp
+                        <PiTrashSimpleFill
                           onClick={() => {
                             setFileContent(null);
                           }}
@@ -368,7 +368,7 @@ const NewComplaint = () => {
       </div>
 
       <div
-        className={` fixed inset-0 bg-opacity-45 bg-black z-50 flex justify-center items-center ${
+        className={` fixed inset-0 bg-opacity-45 bg-black z-[9999] flex justify-center items-center ${
           choose ? "flex" : "hidden"
         }`}
       >

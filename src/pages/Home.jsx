@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import { FaEye } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { LuInfo } from "react-icons/lu";
-import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import resume from "../assets/files/E-Şikayət - Abunəçi Təlimatı.pdf";
 import { Complaint } from "../data/Complaint";
+import TableName from "../components/TableName";
+import TableData from "../components/TableData";
 const Home = () => {
   const complaints = Complaint;
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,9 +38,9 @@ const Home = () => {
   }, [currentPage, filteredComplaints]);
 
   return (
-    <div className="px-10 py-5">
+    <div className="py-10 px-5">
       <div className="flex items-center justify-between">
-        <button className="flex items-center gap-5">
+        <div className="flex items-center gap-5">
           <Link
             to={"new_complaint"}
             className="flex items-center gap-2 bg-primaryColor text-white px-5 py-1 rounded-full"
@@ -55,7 +55,7 @@ const Home = () => {
               <LuInfo className="inline" /> <span>Təlimat</span>
             </a>
           </button>
-        </button>
+        </div>
         <div className="flex bg-white items-center gap-2 border border-[#f4f4f4] px-3 py-1 rounded-full group focus-within:shadow-md duration-300">
           <IoSearch className="text-[#7878AB] text-2xl" />
           <input
@@ -66,87 +66,29 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="bg-white rounded-lg shadow-md mt-5 overflow-hidden">
+      <div className="bg-white rounded-lg shadow-md mt-10 overflow-hidden">
         <div className="flex items-center justify-between bg-primaryColor text-white">
-          <div className="w-[12%] flex items-center justify-between border-r p-5">
-            <p>Şikayət nömrəsi</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[16%] flex items-center justify-between border-r p-5">
-            <p>Fəaliyyət sahəsi</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[10%] flex items-center justify-between border-r p-5">
-            <p>Şirkət</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[13%] flex items-center justify-between border-r p-5">
-            <p>Mövzu</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[13%] flex items-center justify-between border-r p-5">
-            <p>Abunəçi kodu</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[14%] flex items-center justify-between border-r p-5">
-            <p>Status</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[10%] flex items-center justify-between border-r p-5">
-            <p>Tarix</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
-          <div className="w-[12%] flex items-center justify-between p-5">
-            <p>Əməliyyatlar</p>
-            <div>
-              <TiArrowSortedUp />
-              <TiArrowSortedDown />
-            </div>
-          </div>
+          <TableName name={"Şikayət nömrəsi"} width={12} />
+          <TableName name={"Fəaliyyət sahəsi"} width={16} />
+          <TableName name={"Şirkət"} width={10} />
+          <TableName name={"Mövzu"} width={13} />
+          <TableName name={"Abunəçi kodu"} width={13} />
+          <TableName name={"Status"} width={14} />
+          <TableName name={"Tarix"} width={10} />
+          <TableName name={"Əməliyyatlar"} width={12} />
         </div>
         {paginatedComplaints.length > 0 ? (
           paginatedComplaints.map((complaint, idx) => (
-            <div
+            <TableData
               key={idx}
-              className="flex items-center justify-between text-center"
-            >
-              <p className="w-[12%] py-5">{complaint.complaint_number}</p>
-              <p className="w-[16%] py-5">{complaint.field_of_action}</p>
-              <p className="w-[10%] py-5">{complaint.company}</p>
-              <p className="w-[13%] py-5">{complaint.subject}</p>
-              <p className="w-[13%] py-5">{complaint.subscriber_code}</p>
-              <p className="w-[14%] py-5">{complaint.status}</p>
-              <p className="w-[10%] py-5">{complaint.date}</p>
-              <Link
-                to={"show_complaint"}
-                className="w-[12%] py-5 flex justify-center"
-              >
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </Link>
-            </div>
+              complaint_number={complaint.complaint_number}
+              field_of_action={complaint.field_of_action}
+              company={complaint.company}
+              subject={complaint.subject}
+              subscriber_code={complaint.subscriber_code}
+              status={complaint.status}
+              date={complaint.date}
+            />
           ))
         ) : (
           <div className="w-full flex justify-center items-center py-5">

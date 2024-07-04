@@ -1,6 +1,6 @@
 export const Complaint = [
   {
-    complaint_number: 275,
+    complaint_number: 276,
     field_of_action: "İnternet(GPON, ADSL və s.)",
     company: "CITYNET",
     subject: "Qoşulma gecikir",
@@ -9,7 +9,7 @@ export const Complaint = [
     date: "18/05/2024 - 16:01",
   },
   {
-    complaint_number: 276,
+    complaint_number: 275,
     field_of_action: "İnternet(GPON, ADSL və s.)",
     company: "CITYNET",
     subject: "Qoşulma gecikir",

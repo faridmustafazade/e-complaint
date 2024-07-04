@@ -3,6 +3,7 @@
 @tailwind utilities;
 body {
   background-color: #f9f9f9;
+  font-family: sans-serif;
 }
 .sidebar {
   transition: all 0.5s ease;

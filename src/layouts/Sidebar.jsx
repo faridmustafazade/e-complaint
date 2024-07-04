@@ -43,24 +43,18 @@ const Sidebar = () => {
             <Link
               to={"/new_complaint"}
               className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "flex items-center"
+                click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
               <FiPlus className="text-xl" />
-              <p
-                className={`${
-                  click
-                    ? "opacity-1 duration-300"
-                    : "opacity-0 hidden duration-300"
-                }`}
-              >
+              <p className={`${click ? "block" : "hidden"}`}>
                 Yeni şikayət yarat
               </p>
             </Link>
             <Link
               to={""}
               className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "inline"
+                click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
               <TfiMenuAlt className="text-xl" />
@@ -69,7 +63,7 @@ const Sidebar = () => {
             <div
               onClick={() => setChoose(true)}
               className={`cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "inline"
+                click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
               <TbHandClick className="text-2xl" />

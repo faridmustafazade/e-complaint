@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import { HiUser } from "react-icons/hi";
 import { RxExit } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -12,7 +13,9 @@ const Header = () => {
   return (
     <div className="relative">
       <div className="flex justify-between items-center py-5 px-10 border-b ">
-        <img src={logo} className="w-64" alt="icta" />
+        <Link to={"https://icta.az/"} target="_blank">
+          <img src={logo} className="w-64" alt="icta" />
+        </Link>
         <div
           onClick={handleClick}
           className="flex items-center gap-5 cursor-pointer"

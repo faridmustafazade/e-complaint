@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LuUpload } from "react-icons/lu";
-import { FaCheck, FaCirclePlus } from "react-icons/fa6";
+import { FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { IoTrashBinSharp } from "react-icons/io5";
 import { Character, Company, Field_Of_Action } from "../data/Complaint";
@@ -36,7 +36,7 @@ const NewComplaint = () => {
       <div className="px-5 py-16">
         <div className="rounded-lg overflow-hidden">
           <div className="bg-primaryColor py-5">
-            <p className="text-white text-center text-3xl font-semibold">
+            <p className="text-white text-center text-3xl font-medium">
               Şikayət məlumatları
             </p>
           </div>

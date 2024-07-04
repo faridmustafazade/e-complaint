@@ -448,7 +448,7 @@ const NewComplaint = () => {
           choose ? "flex" : "hidden"
         }`}
       >
-        <div className="w-2/5 overflow-hidden">
+        <div className="w-2/5 overflow-hidden flex justify-center">
           <img src={fileContent} className="" alt="" />
         </div>
         <RiFullscreenExitLine

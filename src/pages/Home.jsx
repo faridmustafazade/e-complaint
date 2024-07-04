@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -7,7 +7,13 @@ import { LuInfo } from "react-icons/lu";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import resume from "../assets/files/E-Şikayət - Abunəçi Təlimatı.pdf";
+import { Complaint } from "../data/Complaint";
 const Home = () => {
+  const [complaints, setComplaints] = useState([]);
+  useEffect(() => {
+    setComplaints(Complaint);
+  }, []);
+
   const arr = [1];
   return (
     <div className="px-10 py-5">
@@ -92,137 +98,29 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {arr && arr.length > 0 ? (
+
+        {complaints && complaints.length > 0 ? (
           <>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <Link
-                to={"show_complaint"}
-                className="w-[12%] py-5 flex justify-center"
-              >
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
+            {complaints &&
+              complaints.map((complaint) => (
+                <div className="flex items-center justify-between text-center">
+                  <p className="w-[12%] py-5">{complaint.complaint_number}</p>
+                  <p className="w-[16%] py-5">{complaint.field_of_action}</p>
+                  <p className="w-[10%] py-5">{complaint.company}</p>
+                  <p className="w-[13%] py-5">{complaint.subject}</p>
+                  <p className="w-[13%] py-5">{complaint.subscriber_code}</p>
+                  <p className="w-[14%] py-5">{complaint.status}</p>
+                  <p className="w-[10%] py-5">{complaint.date}</p>
+                  <Link
+                    to={"show_complaint"}
+                    className="w-[12%] py-5 flex justify-center"
+                  >
+                    <div className="bg-primaryColor px-3 py-2 rounded-lg">
+                      <FaEye className="text-white" />
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-center">
-              <p className="w-[12%] py-5">275</p>
-              <p className="w-[16%] py-5">İnternet(GPON, ADSL və s.)</p>
-              <p className="w-[10%] py-5">CİTYNET</p>
-              <p className="w-[13%] py-5">Qoşulma gecikir</p>
-              <p className="w-[13%] py-5">Yoxdur</p>
-              <p className="w-[14%] py-5">Cavablandırıldı</p>
-              <p className="w-[10%] py-5">18/05/2024 - 16:01</p>
-              <div className="w-[12%] py-5 flex justify-center">
-                <div className="bg-primaryColor px-3 py-2 rounded-lg">
-                  <FaEye className="text-white" />
-                </div>
-              </div>
-            </div>
+              ))}
           </>
         ) : (
           <div className="w-full flex justify-center items-center py-5">

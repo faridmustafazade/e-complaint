@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LuUpload } from "react-icons/lu";
 import { FaCheck, FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { IoTrashBinSharp } from "react-icons/io5";
+import { Character, Company, Field_Of_Action } from "../data/Complaint";
 
 const NewComplaint = () => {
   const [type, setType] = useState(null);
@@ -10,6 +11,11 @@ const NewComplaint = () => {
   const [characteristic, setCharacteristic] = useState(null);
   const [fileContent, setFileContent] = useState(null);
   const [choose, setChoose] = useState(false);
+
+  //data
+  const [fields, setFields] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -19,9 +25,15 @@ const NewComplaint = () => {
     };
     reader.readAsDataURL(selectedFile);
   };
+  useEffect(() => {
+    setFields(Field_Of_Action);
+    setCompanies(Company);
+    setCharacters(Character);
+  }, []);
+
   return (
     <>
-      <div className="px-10 py-16">
+      <div className="px-5 py-16">
         <div className="rounded-lg overflow-hidden">
           <div className="bg-primaryColor py-5">
             <p className="text-white text-center text-3xl font-semibold">
@@ -46,20 +58,19 @@ const NewComplaint = () => {
                     <option disabled selected>
                       Fəaliyyət sahəsi
                     </option>
-                    <option value="internet">İnternet(GPON, ADSL və s.)</option>
-                    <option value="telefon">Telefon rabitəsi</option>
-                    <option value="mobil-internet">Mobil internet</option>
-                    <option value="mobil-rabite">Mobil rabitə</option>
-                    <option value="uni-poct">
-                      Universal poçt rabitəsi xidmətləri
-                    </option>
-                    <option value="suret-poct">
-                      Sürətli poçt rabitəsi xidməti
-                    </option>
+                    {fields &&
+                      fields.map((field) => (
+                        <option value={field.value}>{field.title}</option>
+                      ))}
                   </select>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">Şikayətçi olduğunuz şirkət</label>
+                  <label
+                    className={`${type == null && "text-[#908080]"}`}
+                    htmlFor=""
+                  >
+                    Şikayətçi olduğunuz şirkət
+                  </label>
                   <select
                     disabled={type === null && true}
                     type="text"
@@ -68,24 +79,30 @@ const NewComplaint = () => {
                     <option disabled selected>
                       Şikayətçi olduğunuz şirkəti seçin
                     </option>
-                    <option value="internet">İnternet(GPON, ADSL və s.)</option>
-                    <option value="telefon">Telefon rabitəsi</option>
-                    <option value="mobil-internet">Mobil internet</option>
-                    <option value="mobil-rabite">Mobil rabitə</option>
-                    <option value="uni-poct">
-                      Universal poçt rabitəsi xidmətləri
-                    </option>
-                    <option value="suret-poct">
-                      Sürətli poçt rabitəsi xidməti
-                    </option>
+                    {companies
+                      .filter((item) => item.field === type)
+                      .map((company) => (
+                        <>
+                          {company.names.map((name) => (
+                            <option className="text-sm" value="internet">
+                              {name}
+                            </option>
+                          ))}
+                        </>
+                      ))}
                   </select>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">Şikayətin xarakteristikası</label>
+                  <label
+                    className={`${type == null && "text-[#908080]"}`}
+                    htmlFor=""
+                  >
+                    Şikayətin xarakteristikası
+                  </label>
                   <select
                     disabled={type === null && true}
                     type="text"
-                    className=" border p-2 rounded-md"
+                    className="border p-2 rounded-md"
                     onChange={(e) => {
                       setCharacteristic(e.target.value);
                     }}
@@ -93,32 +110,30 @@ const NewComplaint = () => {
                     <option disabled selected>
                       Şikayətin xarakteristikası
                     </option>
-                    <option value="internet">
-                      Əlavə servis xidmətləri ilə bağlı şikayət (əlavə dəyər
-                      xidmətləri, o cümlədən OTT)
-                    </option>
-                    <option value="telefon">
-                      Əməkdaşlardan və ya xidmətdən narazılıq
-                    </option>
-                    <option value="mobil-internet">
-                      İnfrastrukturla əlaqədar şikayətlər
-                    </option>
-                    <option value="mobil-rabite">
-                      Xidmətin işləməməsi ilə bağlı şikayət
-                    </option>
-                    <option value="uni-poct">
-                      Xidmətin keyfiyyəti ilə bağlı şikayət
-                    </option>
-                    <option value="suret-poct">
-                      Xidmətin qoşulması ilə bağlı şikayət (abunə əməliyyatları)
-                    </option>
-                    <option value="suret-poct">
-                      Xitam (xidmətin dayandırılması)
-                    </option>
+                    {characters &&
+                      characters
+                        .filter((item) => item.field === type)
+                        .map((character) => (
+                          <>
+                            {character.names.map((name) => (
+                              <option
+                                className="text-sm"
+                                value={character.field}
+                              >
+                                {name}
+                              </option>
+                            ))}
+                          </>
+                        ))}
                   </select>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">Şikayətin mövzusunu seçin</label>
+                  <label
+                    htmlFor=""
+                    className={`${characteristic == null && "text-[#908080]"}`}
+                  >
+                    Şikayətin mövzusunu seçin
+                  </label>
                   <select
                     disabled={characteristic === null && true}
                     type="text"
@@ -127,7 +142,7 @@ const NewComplaint = () => {
                     <option disabled selected>
                       Şikayət mövzusu
                     </option>
-                    {characteristic === "internet" ? (
+                    {type === "internet" ? (
                       <>
                         <option value="">
                           Çağrı mərkəzi, texniki xidmət mərkəzinə zənglər
@@ -139,7 +154,7 @@ const NewComplaint = () => {
                         </option>
                       </>
                     ) : (
-                      characteristic === "telefon" && (
+                      type === "telefon" && (
                         <>
                           <option value="">
                             Əlavə servis xidmətləri ilə bağlı şikayət (əlavə
@@ -171,19 +186,25 @@ const NewComplaint = () => {
                 </div>
               </div>
               <div className="w-[40%] flex flex-col gap-4">
-                <div className="flex flex-col gap-3">
-                  <label htmlFor="">Abunəçi kodu</label>
-                  <input
-                    className=" border p-2 rounded-md"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Abunəçi kodunu daxil edin..."
-                  />
-                </div>
+                {type && (type === "telefon" || type === "internet") && (
+                  <div className="flex flex-col gap-3">
+                    <label htmlFor="">Abunəçi kodu</label>
+                    <input
+                      className=" border p-2 rounded-md"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Abunəçi kodunu daxil edin..."
+                    />
+                  </div>
+                )}
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">
-                    Şikayət mətni (Qalan simvol sayı: 1000)
+                    Şikayət mətni{" "}
+                    <span className="text-sm">
+                      (Qalan simvol sayı:{" "}
+                      <span className="text-red-700">1000</span>)
+                    </span>
                   </label>
                   <textarea
                     rows="10"
@@ -191,7 +212,7 @@ const NewComplaint = () => {
                     name=""
                     id=""
                     placeholder="Maksimum 1000 simvol"
-                    className="border rounded-md"
+                    className="border rounded-md p-5"
                   />
                 </div>
               </div>
@@ -338,9 +359,10 @@ const NewComplaint = () => {
               </div>
             </div>
           </div>
-          <div className="py-3 bg-primaryColor flex justify-center items-center gap-2 text-white text-2xl rounded-lg hover:bg-[#2d5694] duration-200">
-            <FaCheck />
-            Şikayət yarat
+          <div className="w-full flex justify-end px-10">
+            <div className="w-full py-2 px-16 cursor-pointer bg-primaryColor text-center text-white text-xl font-semibold rounded-lg hover:bg-[#2d5694] duration-200">
+              Şikayət yarat
+            </div>
           </div>
         </div>
       </div>

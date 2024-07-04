@@ -3,8 +3,8 @@ import logo from "../assets/images/logo.png";
 import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
-import { RiMenuSearchLine } from "react-icons/ri";
-import { PiHandTapLight } from "react-icons/pi";
+import { TfiMenuAlt } from "react-icons/tfi";
+import { TbHandClick } from "react-icons/tb";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
@@ -15,77 +15,79 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`sidebar pt-5 bg-[#eaebed] ${
-          click ? "w-[15%]" : "w-[5%]"
-        } shadow-2xl`}
+        className={`sidebar fixed left-0 h-[100vh] z-[999] pt-5 bg-[#eaebed] ${
+          click ? "w-[16%]" : "w-[5%]"
+        } shadow`}
       >
-        <div>
-          <div className="flex flex-col items-center">
-            <div className="flex items-center gap-5">
-              <img
-                className={`w-40 ${click ? "inline" : "hidden"}`}
-                src={logo}
-                alt=""
-              />
-              <IoMenu
-                onClick={handleClick}
-                className={`text-2xl ${click ? "hidden" : "block"}`}
-              />
-              <BiMenuAltRight
-                onClick={handleClick}
-                className={`text-2xl ${click ? "block" : "hidden"}`}
-              />
-            </div>
-            <div className="mt-10 flex flex-col gap-3 px-2">
-              <Link
-                to={"/new_complaint"}
-                className={`bg-white shadow-lg rounded-md p-3 ${
-                  click ? "flex items-center gap-2" : "flex items-center"
+        <div className="flex flex-col items-center w-full">
+          <div className="flex items-center gap-5">
+            <img
+              className={`w-40 ${click ? "inline" : "hidden"}`}
+              src={logo}
+              alt=""
+            />
+            <IoMenu
+              onClick={handleClick}
+              className={`cursor-pointer text-2xl ${
+                click ? "hidden" : "block"
+              }`}
+            />
+            <BiMenuAltRight
+              onClick={handleClick}
+              className={`cursor-pointer text-2xl ${
+                click ? "block" : "hidden"
+              }`}
+            />
+          </div>
+          <div className="mt-10 flex flex-col gap-3">
+            <Link
+              to={"/new_complaint"}
+              className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
+                click ? "flex items-center gap-2" : "flex items-center"
+              }`}
+            >
+              <FiPlus className="text-xl" />
+              <p
+                className={`${
+                  click
+                    ? "opacity-1 duration-300"
+                    : "opacity-0 hidden duration-300"
                 }`}
               >
-                <FiPlus className="text-xl" />
-                <p
-                  className={`${
-                    click
-                      ? "opacity-1 duration-300"
-                      : "opacity-0 hidden duration-300"
-                  }`}
-                >
-                  Yeni şikayət yarat
-                </p>
-              </Link>
-              <Link
-                to={""}
-                className={`bg-white shadow-lg rounded-md p-3 ${
-                  click ? "flex items-center gap-2" : "inline"
-                }`}
-              >
-                <RiMenuSearchLine className="text-xl" />
-                <p className={`${click ? "block" : "hidden"}`}>Şikayətlər</p>
-              </Link>
-              <div
-                onClick={() => setChoose(true)}
-                className={`cursor-pointer bg-white shadow-lg rounded-md p-3 ${
-                  click ? "flex items-center gap-2" : "inline"
-                }`}
-              >
-                <PiHandTapLight className="text-2xl" />
-                <p className={`${click ? "block" : "hidden"}`}>
-                  İstehlakçı təcrübəsi sorğusu
-                </p>
-              </div>
+                Yeni şikayət yarat
+              </p>
+            </Link>
+            <Link
+              to={""}
+              className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
+                click ? "flex items-center gap-2" : "inline"
+              }`}
+            >
+              <TfiMenuAlt className="text-xl" />
+              <p className={`${click ? "block" : "hidden"}`}>Şikayətlər</p>
+            </Link>
+            <div
+              onClick={() => setChoose(true)}
+              className={`cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
+                click ? "flex items-center gap-2" : "inline"
+              }`}
+            >
+              <TbHandClick className="text-2xl" />
+              <p className={`${click ? "block" : "hidden"} text-sm`}>
+                İstehlakçı təcrübəsi sorğusu
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div
-        className={` fixed inset-0 bg-opacity-80 bg-black z-50 flex justify-center items-center ${
-          choose ? "flex" : "hidden"
+        className={`fixed inset-0 bg-black z-[9999] flex justify-center items-center ${
+          choose ? "flex bg-opacity-80" : "hidden"
         }`}
       >
         <div className="w-2/5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
           <div className="flex items-center gap-5">
-            <PiHandTapLight className="text-3xl text-primaryColor" />
+            <TbHandClick className="text-3xl text-primaryColor" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>
           </div>
           <div>

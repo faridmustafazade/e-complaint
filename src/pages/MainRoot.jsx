@@ -4,7 +4,7 @@ import Header from "../layouts/Header";
 import Sidebar from "../layouts/Sidebar";
 const MainRoot = () => {
   return (
-    <div className="w-full flex">
+    <div className="w-full flex justify-end">
       <Sidebar />
       <div className="w-[95%]">
         <Header />

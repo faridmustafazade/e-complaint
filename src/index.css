@@ -15,3 +15,31 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* styles.css */
+.transition-all {
+  transition-property: all;
+  transition-duration: 0.3s;
+}
+
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  @media only screen and (max-width: 478px) {
+    width: 0;
+  }
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #3C6CB4;
+  border-radius: 10px;
+  width: 5px;
+}

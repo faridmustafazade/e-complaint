@@ -3,9 +3,24 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      keyframes: {
+        "zoom-in": {
+          "0%": { transform: "scale(0.5)", opacity: "0" },
+          "25%": { transform: "scale(1.1)", opacity: "1" },
+          "50%": { transform: "scale(1)", opacity: "1" },
+          "75%": { transform: "scale(1.1)", opacity: "1" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+      },
+      animation: {
+        "zoom-in": "zoom-in 0.5s ease-out",
+      },
       opacity: {
         35: "0.35",
         45: "0.45",
+      },
+      rotate: {
+        30: "30deg",
       },
       colors: {
         primaryColor: "#3C6CB4",

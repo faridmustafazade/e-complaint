@@ -17,7 +17,6 @@ const NewComplaint = () => {
 
   //keyDown function
   const [text, setText] = useState([]);
-  const [key, setKey] = useState();
   const onKeyDown = (e) => {
     const { key } = e;
     const ignoredKeys = [
@@ -32,6 +31,7 @@ const NewComplaint = () => {
       "Control",
       "Tab",
       "Enter",
+      "Shift",
     ];
     if (!ignoredKeys.includes(key)) {
       setText([...text, key]);
@@ -44,14 +44,17 @@ const NewComplaint = () => {
   const [fields, setFields] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const id = Math.random();
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      setFileContent(reader.result);
-    };
-    reader.readAsDataURL(selectedFile);
+
+    if (selectedFile.type.includes("image")) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFileContent(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+    setFileContent(selectedFile.name);
   };
   useEffect(() => {
     setFields(Field_Of_Action);
@@ -82,7 +85,7 @@ const NewComplaint = () => {
                       setType(e.target.value);
                     }}
                     type="text"
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                   >
                     <option value={"option"} disabled>
                       Fəaliyyət sahəsi
@@ -106,7 +109,7 @@ const NewComplaint = () => {
                     defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                   >
                     <option disabled value={"option"}>
                       Şikayətçi olduğunuz şirkəti seçin
@@ -139,7 +142,7 @@ const NewComplaint = () => {
                     defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                     onChange={(e) => {
                       setCharacteristic(e.target.value);
                     }}
@@ -176,7 +179,7 @@ const NewComplaint = () => {
                     defaultValue={"option"}
                     disabled={characteristic === null && true}
                     type="text"
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                   >
                     <option disabled value={"option"}>
                       Şikayət mövzusu
@@ -276,7 +279,7 @@ const NewComplaint = () => {
                       </span>
                       <input
                         type="file"
-                        accept="image/*"
+                        accept=".png,.txt,.jpeg,.jpg,.pdf"
                         onChange={(e) => {
                           handleFileChange(e);
                         }}
@@ -284,21 +287,37 @@ const NewComplaint = () => {
                       />
                     </>
                   ) : (
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-black bg-opacity-40 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
-                        <PiTrashSimpleFill
-                          onClick={() => {
-                            setFileContent(null);
-                          }}
-                          className="text-white text-4xl"
-                        />
-                        <RiFullscreenLine
-                          className="text-white text-4xl"
-                          onClick={() => setChoose(true)}
-                        />
-                      </div>
-                      <img src={fileContent} alt="" />
-                    </div>
+                    <>
+                      {fileContent.includes("image") ? (
+                        <div className="relative">
+                          <div className="absolute inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
+                            <PiTrashSimpleFill
+                              onClick={() => {
+                                setFileContent(null);
+                              }}
+                              className="text-primaryColor text-4xl"
+                            />
+                            <RiFullscreenLine
+                              className="text-primaryColor text-4xl"
+                              onClick={() => setChoose(true)}
+                            />
+                          </div>
+                          <img src={fileContent} alt="" />
+                        </div>
+                      ) : (
+                        <div className="relative">
+                          <div className="absolute inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
+                            <PiTrashSimpleFill
+                              onClick={() => {
+                                setFileContent(null);
+                              }}
+                              className="text-primaryColor text-4xl"
+                            />
+                          </div>
+                          <p>{fileContent}</p>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -315,7 +334,7 @@ const NewComplaint = () => {
                     name=""
                     id=""
                     onChange={(e) => setCity(e.target.value)}
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                   >
                     <option disabled value={"option"}>
                       Şəhəri seçin
@@ -339,7 +358,7 @@ const NewComplaint = () => {
                     defaultValue={"option"}
                     disabled={city === "Baku" ? false : true}
                     onChange={(e) => setRayon(e.target.value)}
-                    className="text-sm border p-2 rounded-md"
+                    className="text-sm border p-3 rounded-md"
                     name=""
                     id=""
                   >
@@ -435,11 +454,12 @@ const NewComplaint = () => {
               <div className="flex justify-between">
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">*Bina / Ev</label>
-                  <input type="text" className=" border p-2 rounded-md" />
+                  <input type="number" min={1} className=" border p-2 rounded-md" />
                 </div>
+                <div className="w-[1px] bg-[#DEE2E6] rotate-30"></div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Mənzil</label>
-                  <input type="text" className=" border p-2 rounded-md" />
+                  <input type="number" min={1} className=" border p-2 rounded-md" />
                 </div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Əlaqə nömrəsi</label>

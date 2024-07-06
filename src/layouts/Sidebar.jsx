@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`sidebar fixed left-0 h-[100vh] z-[999] pt-5 bg-[#eaebed] ${
+        className={`sidebar fixed left-0 h-screen z-[999] pt-5 bg-[#eaebed] ${
           click ? "w-full md:w-[250px] lg:w-[250px]" : "w-[78px]"
         } shadow`}
       >

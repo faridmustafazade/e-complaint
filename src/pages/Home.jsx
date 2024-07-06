@@ -66,7 +66,7 @@ const Home = () => {
           />
         </div>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-md mt-10 overflow-hidden">
         <div className="flex items-center justify-between bg-primaryColor text-white">
           <TableName name={"Şikayət nömrəsi"} width={12} />

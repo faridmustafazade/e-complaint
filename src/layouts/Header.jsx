@@ -12,7 +12,7 @@ const Header = () => {
   }
   return (
     <div className="relative">
-      <div className="flex justify-between items-center py-5 px-10 border-b ">
+      <div className="flex justify-between items-center p-5 border-b ">
         <Link to={"https://icta.az/"} target="_blank">
           <img src={logo} className="w-64" alt="icta" />
         </Link>

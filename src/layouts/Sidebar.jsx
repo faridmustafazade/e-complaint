@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
+import hand from "../assets/images/svg/hand.svg";
 import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
@@ -15,15 +16,15 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`sidebar fixed left-0 h-[100vh] w-[100%] z-[999] pt-5 bg-[#eaebed] ${
-          click ? "md:w-[16%]" : "md:w-[5%]"
+        className={`sidebar fixed left-0 h-[100vh] z-[999] pt-5 bg-[#eaebed] ${
+          click ? "w-full md:w-[250px] lg:w-[250px]" : "w-[78px]"
         } shadow`}
       >
         <div className="flex flex-col items-center w-full">
           <div className="w-full flex items-center justify-center">
             <div className="flex items-center gap-5">
               <img
-                className={`w-[70%] ${click ? "inline" : "hidden"}`}
+                className={`w-[70%] ${click ? "inline" : "hidden"} ml-3`}
                 src={logo}
                 alt=""
               />
@@ -41,26 +42,35 @@ const Sidebar = () => {
               />
             </div>
           </div>
-          <div className="mt-10 flex flex-col gap-3">
+          <div className=" mt-10 flex flex-col gap-3 ">
             <Link
               to={"/new_complaint"}
-              className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
+              className={` relative group cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
                 click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
               <FiPlus className="text-xl" />
-              <p className={`${click ? "block" : "hidden"}`}>
+              <p className={`w-44 ${click ? "block" : "w-0 hidden"}`}>
+                Yeni şikayət yarat
+              </p>
+              <p
+                className={`w-44 shadow rounded-lg px-5 py-2 bg-white ${
+                  click ? " hidden opacity-0" : "hidden opacity-0 absolute"
+                } group-hover:opacity-100 duration-500 transition-all  transform group-hover:translate-y-4  left-20 top-0`}
+              >
                 Yeni şikayət yarat
               </p>
             </Link>
             <Link
               to={""}
-              className={`bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
+              className={`cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
                 click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
-              <TfiMenuAlt className="text-xl" />
-              <p className={`${click ? "block" : "hidden"}`}>Şikayətlər</p>
+              <TfiMenuAlt className="text-sm" />
+              <p className={`w-44 ${click ? "block" : "w-0 hidden"}`}>
+                Şikayətlər
+              </p>
             </Link>
             <div
               onClick={() => setChoose(true)}
@@ -68,8 +78,12 @@ const Sidebar = () => {
                 click ? "flex items-center gap-2" : "flex justify-center"
               }`}
             >
-              <TbHandClick className="text-2xl" />
-              <p className={`${click ? "block" : "hidden"} text-sm`}>
+              <img src={hand} alt="" />
+              <p
+                className={`w-44 ${
+                  click ? "block" : "w-0 hidden"
+                } transition-all text-sm`}
+              >
                 İstehlakçı təcrübəsi sorğusu
               </p>
             </div>

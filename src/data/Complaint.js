@@ -341,6 +341,7 @@ export const Field_Of_Action = [
 ];
 export const Company = [
   {
+    id: 1,
     field: "internet",
     names: [
       '"ALNET" Məhdud Məsuliyyətli Cəmiyyəti',
@@ -351,6 +352,8 @@ export const Company = [
     ],
   },
   {
+    id: 2,
+
     field: "telefon",
     names: [
       '"AZERBAİJAN INTERNATİONAL TELECOM (AZINTELECOM)" MƏHDUD MƏSULİYYƏTLİ CƏMİYYƏTİ',
@@ -361,15 +364,22 @@ export const Company = [
     ],
   },
   {
+    id: 3,
     field: "mobil-internet",
     names: ["AZERCELL", "BAKCELL", "NAR", "NAXTEL"],
   },
   {
+    id: 4,
     field: "mobil-rabite",
     names: ["AZERCELL", "BAKCELL", "NAR", "NAXTEL"],
   },
-  { field: "uni-poct", names: ['"AZƏRPOÇT" MMC '] },
   {
+    id: 5,
+    field: "uni-poct",
+    names: ['"AZƏRPOÇT" MMC '],
+  },
+  {
+    id:6,
     field: "suret-poct",
     names: [
       '"166 EXPRESS" MMC(166KARGO)',

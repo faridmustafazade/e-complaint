@@ -15,11 +15,36 @@ const NewComplaint = () => {
   const [fileContent, setFileContent] = useState(null);
   const [choose, setChoose] = useState(false);
 
+  //keyDown function
+  const [text, setText] = useState([]);
+  const [key, setKey] = useState();
+  const onKeyDown = (e) => {
+    const { key } = e;
+    const ignoredKeys = [
+      "Backspace",
+      "Delete",
+      "Alt",
+      "CapsLock",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Control",
+      "Tab",
+      "Enter",
+    ];
+    if (!ignoredKeys.includes(key)) {
+      setText([...text, key]);
+    } else if (key === "Backspace") {
+      setText(text.slice(0, -1));
+    }
+  };
+
   //data
   const [fields, setFields] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [characters, setCharacters] = useState([]);
-
+  const id = Math.random();
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     const reader = new FileReader();
@@ -52,18 +77,21 @@ const NewComplaint = () => {
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Şikayət etdiyiniz fəaliyyət sahəsi</label>
                   <select
+                    defaultValue={"option"}
                     onChange={(e) => {
                       setType(e.target.value);
                     }}
                     type="text"
                     className="text-sm border p-2 rounded-md"
                   >
-                    <option disabled selected>
+                    <option value={"option"} disabled>
                       Fəaliyyət sahəsi
                     </option>
                     {fields &&
-                      fields.map((field) => (
-                        <option value={field.value}>{field.title}</option>
+                      fields.map((field, idx) => (
+                        <option key={idx} value={field.value}>
+                          {field.title}
+                        </option>
                       ))}
                   </select>
                 </div>
@@ -75,19 +103,24 @@ const NewComplaint = () => {
                     Şikayətçi olduğunuz şirkət
                   </label>
                   <select
+                    defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
                     className="text-sm border p-2 rounded-md"
                   >
-                    <option disabled selected>
+                    <option disabled value={"option"}>
                       Şikayətçi olduğunuz şirkəti seçin
                     </option>
                     {companies
                       .filter((item) => item.field === type)
                       .map((company) => (
                         <>
-                          {company.names.map((name) => (
-                            <option className="text-sm" value="internet">
+                          {company.names.map((name, idx) => (
+                            <option
+                              key={`${company.id}-${idx}`}
+                              className="text-sm"
+                              value="internet"
+                            >
                               {name}
                             </option>
                           ))}
@@ -103,6 +136,7 @@ const NewComplaint = () => {
                     Şikayətin xarakteristikası
                   </label>
                   <select
+                    defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
                     className="text-sm border p-2 rounded-md"
@@ -110,7 +144,7 @@ const NewComplaint = () => {
                       setCharacteristic(e.target.value);
                     }}
                   >
-                    <option disabled selected>
+                    <option disabled value={"option"}>
                       Şikayətin xarakteristikası
                     </option>
                     {characters &&
@@ -118,8 +152,9 @@ const NewComplaint = () => {
                         .filter((item) => item.field === type)
                         .map((character) => (
                           <>
-                            {character.names.map((name) => (
+                            {character.names.map((name, idx) => (
                               <option
+                                key={`${character.field}-${idx}`}
                                 className="text-sm"
                                 value={character.field}
                               >
@@ -138,11 +173,12 @@ const NewComplaint = () => {
                     Şikayətin mövzusunu seçin
                   </label>
                   <select
+                    defaultValue={"option"}
                     disabled={characteristic === null && true}
                     type="text"
                     className="text-sm border p-2 rounded-md"
                   >
-                    <option disabled selected>
+                    <option disabled value={"option"}>
                       Şikayət mövzusu
                     </option>
                     {type === "internet" ? (
@@ -206,7 +242,8 @@ const NewComplaint = () => {
                     Şikayət mətni{" "}
                     <span className="text-sm">
                       (Qalan simvol sayı:{" "}
-                      <span className="text-red-700">1000</span>)
+                      <span className="text-red-700">{1000 - text.length}</span>
+                      )
                     </span>
                   </label>
                   <textarea
@@ -214,6 +251,7 @@ const NewComplaint = () => {
                     type="text"
                     name=""
                     id=""
+                    onKeyDown={onKeyDown}
                     placeholder="Maksimum 1000 simvol"
                     className="border rounded-md p-5"
                   />
@@ -273,12 +311,13 @@ const NewComplaint = () => {
                 <div className="w-[24%] flex flex-col gap-3">
                   <label htmlFor="">*Şəhəri seçin</label>
                   <select
+                    defaultValue={"option"}
                     name=""
                     id=""
                     onChange={(e) => setCity(e.target.value)}
                     className="text-sm border p-2 rounded-md"
                   >
-                    <option value="" disabled selected>
+                    <option disabled value={"option"}>
                       Şəhəri seçin
                     </option>
                     <option value="Baku">Bakı</option>
@@ -297,13 +336,14 @@ const NewComplaint = () => {
                     *Rayonu seçin
                   </label>
                   <select
+                    defaultValue={"option"}
                     disabled={city === "Baku" ? false : true}
                     onChange={(e) => setRayon(e.target.value)}
                     className="text-sm border p-2 rounded-md"
                     name=""
                     id=""
                   >
-                    <option value="" selected disabled>
+                    <option value="option" disabled>
                       Rayonu seçin
                     </option>
                     {city === "Baku" && (
@@ -405,10 +445,13 @@ const NewComplaint = () => {
                   <label htmlFor="">Əlaqə nömrəsi</label>
                   <div>
                     +994
-                    <select name="" className="border p-2 rounded-md" id="">
-                      <option value="" defaultChecked>
-                        (50)
-                      </option>
+                    <select
+                      name=""
+                      className="border p-2 rounded-md"
+                      id=""
+                      defaultValue={"option"}
+                    >
+                      <option value="option">(50)</option>
                       <option value="">(51)</option>
                       <option value="">(10)</option>
                       <option value="">(55)</option>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LuUpload } from "react-icons/lu";
-import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
+import { FaCheck, FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { PiTrashSimpleFill } from "react-icons/pi";
 import { Character, Company, Field_Of_Action } from "../data/Complaint";
@@ -64,8 +64,8 @@ const NewComplaint = () => {
 
   return (
     <>
-      <div className="px-5 py-16">
-        <div className="rounded-lg overflow-hidden">
+      <div className="px-5 py-10">
+        <div className="rounded-t-lg overflow-hidden">
           <div className="bg-primaryColor py-5">
             <p className="text-white text-center text-3xl font-medium">
               Şikayət məlumatları
@@ -91,8 +91,8 @@ const NewComplaint = () => {
                       Fəaliyyət sahəsi
                     </option>
                     {fields &&
-                      fields.map((field, idx) => (
-                        <option key={idx} value={field.value}>
+                      fields.map((field) => (
+                        <option key={field.value} value={field.value}>
                           {field.title}
                         </option>
                       ))}
@@ -116,19 +116,17 @@ const NewComplaint = () => {
                     </option>
                     {companies
                       .filter((item) => item.field === type)
-                      .map((company) => (
-                        <>
-                          {company.names.map((name, idx) => (
-                            <option
-                              key={`${company.id}-${idx}`}
-                              className="text-sm"
-                              value="internet"
-                            >
-                              {name}
-                            </option>
-                          ))}
-                        </>
-                      ))}
+                      .flatMap((company) =>
+                        company.names.map((name) => (
+                          <option
+                            key={name.id}
+                            className="text-sm"
+                            value={name.id}
+                          >
+                            {name.name}
+                          </option>
+                        ))
+                      )}
                   </select>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -153,19 +151,17 @@ const NewComplaint = () => {
                     {characters &&
                       characters
                         .filter((item) => item.field === type)
-                        .map((character) => (
-                          <>
-                            {character.names.map((name, idx) => (
-                              <option
-                                key={`${character.field}-${idx}`}
-                                className="text-sm"
-                                value={character.field}
-                              >
-                                {name}
-                              </option>
-                            ))}
-                          </>
-                        ))}
+                        .flatMap((character) =>
+                          character.names.map((name) => (
+                            <option
+                              className="text-sm"
+                              key={name.id}
+                              value={name.id}
+                            >
+                              {name.name}
+                            </option>
+                          ))
+                        )}
                   </select>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -262,9 +258,9 @@ const NewComplaint = () => {
               </div>
               <div className="w-[30%] flex justify-center">
                 <div
-                  className={`relative rounded-lg bg-[#F3F3F3] 
-    ${fileContent === null ? "pt-32" : "pt-5"}
-    cursor-pointer pb-5 px-5 w-[80%] border flex flex-col items-center gap-3 justify-end h-full group hover:bg-white duration-300`}
+                  className={`relative rounded-lg bg-[#F3F3F3] ${
+                    fileContent === null ? "pt-32" : "pt-5"
+                  } cursor-pointer pb-5 px-5 w-[80%] border flex flex-col items-center gap-3 justify-end h-full group hover:bg-white duration-300`}
                 >
                   {fileContent === null ? (
                     <>
@@ -454,12 +450,20 @@ const NewComplaint = () => {
               <div className="flex justify-between">
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">*Bina / Ev</label>
-                  <input type="number" min={1} className=" border p-2 rounded-md" />
+                  <input
+                    type="number"
+                    min={1}
+                    className=" border p-2 rounded-md"
+                  />
                 </div>
                 <div className="w-[1px] bg-[#DEE2E6] rotate-30"></div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Mənzil</label>
-                  <input type="number" min={1} className=" border p-2 rounded-md" />
+                  <input
+                    type="number"
+                    min={1}
+                    className=" border p-2 rounded-md"
+                  />
                 </div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Əlaqə nömrəsi</label>
@@ -498,8 +502,9 @@ const NewComplaint = () => {
               </div>
             </div>
           </div>
-          <div className="w-full flex justify-end px-10">
-            <div className="w-full py-2 px-16 cursor-pointer bg-primaryColor text-center text-white text-xl font-semibold rounded-lg hover:bg-[#2d5694] duration-200">
+          <div className="w-full flex justify-end mt-5">
+            <div className="flex items-center justify-center gap-3 w-full py-2 px-16 cursor-pointer bg-primaryColor text-center text-white text-xl rounded-md hover:bg-[#2d5694] duration-200">
+              <FaCheck />
               Şikayət yarat
             </div>
           </div>

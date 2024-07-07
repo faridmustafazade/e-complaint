@@ -22,7 +22,7 @@ const ShowComplaint = () => {
         <div className="rounded-lg shadow overflow-hidden">
           <div
             onClick={() => setOpen(!open)}
-            className="relative cursor-pointer bg-primaryColor py-5 flex items-center justify-center"
+            className="relative cursor-pointer bg-primaryColor py-4 flex items-center justify-center"
           >
             <p className="select-none text-white text-center text-lg font-semibold">
               ŞİKAYƏT MƏLUMATLARI
@@ -127,7 +127,7 @@ const ShowComplaint = () => {
         <div className="rounded-lg shadow overflow-hidden">
           <div
             onClick={() => setOpen2(!open2)}
-            className="relative cursor-pointer bg-primaryColor py-5 flex items-center justify-center"
+            className="relative cursor-pointer bg-primaryColor py-4 flex items-center justify-center"
           >
             <p className="select-none text-white text-center text-lg font-semibold">
               ŞİKAYƏTƏ İSP TƏRƏFİNDƏN BAXIŞIN NƏTİCƏSİ

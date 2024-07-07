@@ -27,7 +27,7 @@ const AnswerPopUp = ({ choose, setChoose }) => {
               label={"Bəli"}
             />
             <Button
-              color={"[#ff0000]"}
+              color={"[#FF0000]"}
               set={setChoose}
               get={choose}
               label={"Xeyr"}

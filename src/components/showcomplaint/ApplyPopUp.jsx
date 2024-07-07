@@ -58,7 +58,7 @@ const ApplyPopUp = ({ success, setSuccess }) => {
               label={"Bəli"}
             />
             <Button
-              color={"[#ff0000]"}
+              color={"[#FF0000]"}
               set={setSuccess}
               get={success}
               label={"Xeyr"}

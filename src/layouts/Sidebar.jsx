@@ -7,89 +7,128 @@ import { FiPlus } from "react-icons/fi";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { TbHandClick } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { CiLogout } from "react-icons/ci";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
   const [choose, setChoose] = useState(false);
-  function handleClick() {
-    setClick(!click);
-  }
+
   return (
     <>
-      <div
-        className={`sidebar fixed left-0 h-screen z-[999] pt-5 bg-[#eaebed] ${
-          click ? "w-full md:w-[250px] lg:w-[250px]" : "w-[78px]"
-        } shadow`}
-      >
-        <div className="flex flex-col items-center w-full">
-          <div className="w-full flex items-center justify-center">
-            <div className="flex items-center gap-5">
-              <img
-                className={`w-[70%] ${click ? "inline" : "hidden"} ml-3`}
-                src={logo}
-                alt=""
-              />
-              <IoMenu
-                onClick={handleClick}
-                className={`cursor-pointer text-2xl ${
-                  click ? "hidden" : "block"
-                }`}
-              />
-              <BiMenuAltRight
-                onClick={handleClick}
-                className={`cursor-pointer text-2xl w-[30%] ${
-                  click ? "block" : "hidden"
-                }`}
-              />
-            </div>
-          </div>
-          <div className=" mt-10 flex flex-col gap-3 ">
-            <Link
-              to={"/new_complaint"}
-              className={` relative group cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "flex justify-center"
-              }`}
-            >
-              <FiPlus className="text-xl" />
-              <p className={`w-44 ${click ? "block" : "w-0 hidden"}`}>
-                Yeni şikayət yarat
-              </p>
-              <p
-                className={`w-44 shadow rounded-lg px-5 py-2 bg-white ${
-                  click ? " hidden opacity-0" : "hidden opacity-0 absolute"
-                } group-hover:opacity-100 duration-500 transition-all  transform group-hover:translate-y-4  left-20 top-0`}
-              >
-                Yeni şikayət yarat
-              </p>
-            </Link>
-            <Link
-              to={""}
-              className={`cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "flex justify-center"
-              }`}
-            >
-              <TfiMenuAlt className="text-sm" />
-              <p className={`w-44 ${click ? "block" : "w-0 hidden"}`}>
-                Şikayətlər
-              </p>
-            </Link>
+      <aside className="h-screen fixed z-[999] left-0 flex flex-col">
+        <nav className="h-full flex flex-col justify-between bg-[#eaebed] border-r shadow">
+          <div>
             <div
-              onClick={() => setChoose(true)}
-              className={`cursor-pointer bg-white shadow-lg rounded-md p-3 hover:bg-[#E2E3E4] duration-300 ${
-                click ? "flex items-center gap-2" : "flex justify-center"
+              className={`p-4 pb-2 flex  items-center ${
+                click ? "justify-between" : "justify-center"
               }`}
             >
-              <img src={hand} alt="" />
-              <p
-                className={`w-44 ${
-                  click ? "block" : "w-0 hidden"
-                } transition-all text-sm`}
+              <div
+                className={`
+           flex justify-between items-center
+           overflow-hidden transition-all ${
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+           }`}
               >
-                İstehlakçı təcrübəsi sorğusu
-              </p>
+                <img src={logo} className="w-52 max-w-52" alt="" />
+              </div>
+              <button
+                onClick={() => setClick(!click)}
+                className="p-1.5 rounded-lg"
+              >
+                {click ? (
+                  <BiMenuAltRight className="text-2xl" />
+                ) : (
+                  <IoMenu className="text-2xl" />
+                )}
+              </button>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-3">
+              <Link
+                to={"/new_complaint"}
+                className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              >
+                <FiPlus className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
+              flex justify-between items-center
+              overflow-hidden transition-all ${
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+              }
+          `}
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44 max-w-44">Yeni şikayət yarat</h4>
+                  </div>
+                </div>
+              </Link>
+              <Link
+                to={"/"}
+                className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              >
+                <TfiMenuAlt className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
+              flex justify-between items-center
+              overflow-hidden transition-all ${
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+              }
+          `}
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44">Şikayətlər</h4>
+                  </div>
+                </div>
+              </Link>
+              <div
+                onClick={() => setChoose(true)}
+                className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              >
+                <img src={hand} alt="hand" className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
+              flex justify-between items-center
+              overflow-hidden transition-all ${
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+              }
+          `}
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44 text-sm">
+                      İstehlakçı təcrübəsi sorğusu{" "}
+                    </h4>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div
+            className={`p-4 pb-2 flex  items-center bg-[#e2e3e4] shadow ${
+              click ? "justify-between" : "justify-center"
+            }`}
+          >
+            <div
+              className={`
+           flex justify-between items-center
+           overflow-hidden transition-all ${
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+           }`}
+            >
+              <p className="w-52 max-w-52 font-semibold" alt="">
+                Çıxış
+              </p>
+            </div>
+            <button
+              onClick={() => setClick(!click)}
+              className="p-1.5 rounded-lg"
+            >
+              <CiLogout
+                className={`text-2xl duration-500 ${click && "rotate-180"}`}
+              />
+            </button>
+          </div>
+        </nav>
+      </aside>
       <div
         className={`fixed inset-0 bg-black z-[9999] flex justify-center items-center ${
           choose ? "flex bg-opacity-80" : "hidden"
@@ -100,6 +139,7 @@ const Sidebar = () => {
             <TbHandClick className="text-3xl text-primaryColor" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>
           </div>
+
           <div>
             <p className="text-center text-xl">
               İnternet xidmətləri üzrə istehlakçı təcrübəsi sorğusu

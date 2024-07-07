@@ -16,7 +16,7 @@ const ApplyPopUp = ({ success, setSuccess }) => {
         success ? "flex bg-opacity-30" : "hidden"
       }`}
     >
-      <div className="w-3/6 animate-zoom-in overflow-hidden flex flex-col rounded-lg bg-white">
+      <div className="w-11/12 lg:w-3/6 animate-zoom-in overflow-hidden flex flex-col rounded-lg bg-white">
         <div className="py-10 flex flex-col gap-10">
           <div className="flex flex-col items-center px-5 gap-3">
             <p className="cursor-pointer" onClick={handleClick}>

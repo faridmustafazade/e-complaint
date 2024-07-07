@@ -64,19 +64,19 @@ const NewComplaint = () => {
 
   return (
     <>
-      <div className="px-5 py-10">
+      <div className="px-3 py-6 lg:px-5 lg:py-10">
         <div className="rounded-t-lg overflow-hidden">
           <div className="bg-primaryColor py-5">
-            <p className="text-white text-center text-3xl font-medium">
+            <p className="text-white text-center lg:text-3xl md:text-2xl text-xl font-medium">
               Şikayət məlumatları
             </p>
           </div>
           <div className="flex flex-col gap-5">
             <div
               id="section-1"
-              className="bg-white flex justify-between items-start p-10 gap-10 shadow-sm rounded-b-lg"
+              className="bg-white flex flex-col lg:flex-row justify-between items-start lg:p-10 p-5 gap-10 shadow-sm rounded-b-lg"
             >
-              <div className="w-[20%] flex flex-col gap-4">
+              <div className="lg:w-[20%] w-full flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Şikayət etdiyiniz fəaliyyət sahəsi</label>
                   <select
@@ -223,7 +223,7 @@ const NewComplaint = () => {
                   </select>
                 </div>
               </div>
-              <div className="w-[40%] flex flex-col gap-4">
+              <div className="lg:w-[40%] w-full flex flex-col gap-4">
                 {type && (type === "telefon" || type === "internet") && (
                   <div className="flex flex-col gap-3">
                     <label htmlFor="">Abunəçi kodu</label>
@@ -256,11 +256,11 @@ const NewComplaint = () => {
                   />
                 </div>
               </div>
-              <div className="w-[30%] flex justify-center">
+              <div className="lg:w-[30%] w-full flex justify-center">
                 <div
                   className={`relative rounded-lg bg-[#F3F3F3] ${
-                    fileContent === null ? "pt-32" : "pt-5"
-                  } cursor-pointer pb-5 px-5 w-[80%] border flex flex-col items-center gap-3 justify-end h-full group hover:bg-white duration-300`}
+                    fileContent === null ? "lg:pt-32 pt-5" : "pt-5"
+                  } cursor-pointer pb-5 px-5 lg:w-[80%] border flex flex-col items-center gap-3 justify-end h-full group hover:bg-white duration-300`}
                 >
                   {fileContent === null ? (
                     <>
@@ -320,10 +320,10 @@ const NewComplaint = () => {
             </div>
             <div
               id="section-2"
-              className="p-10 bg-white  shadow-sm rounded-lg "
+              className="lg:p-10 p-5 bg-white  shadow-sm rounded-lg "
             >
-              <div className="flex justify-between">
-                <div className="w-[24%] flex flex-col gap-3">
+              <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between">
+                <div className="lg:w-[24%] w-full flex flex-col gap-3">
                   <label htmlFor="">*Şəhəri seçin</label>
                   <select
                     defaultValue={"option"}
@@ -339,7 +339,7 @@ const NewComplaint = () => {
                     <option value="Lenkaran">Lənkəran</option>
                   </select>
                 </div>
-                <div className="w-[24%] flex flex-col gap-3">
+                <div className="lg:w-[24%] w-full flex flex-col gap-3">
                   <label
                     htmlFor=""
                     className={`${
@@ -369,7 +369,7 @@ const NewComplaint = () => {
                     )}
                   </select>
                 </div>
-                <div className="w-[24%] flex flex-col gap-3">
+                <div className="lg:w-[24%] w-full flex flex-col gap-3">
                   <label
                     htmlFor=""
                     className={`${
@@ -401,7 +401,7 @@ const NewComplaint = () => {
                     placeholder="Küçəni / Kəndi seçin"
                   />
                 </div>
-                <div className="w-[24%] flex flex-col gap-3 items-start">
+                <div className="lg:w-[24%] w-full flex flex-col gap-3 items-start">
                   <label
                     htmlFor=""
                     className={`${
@@ -419,9 +419,9 @@ const NewComplaint = () => {
                         : city === "Baku" && rayon == null && true
                     }
                     className={`flex items-center ${
-                      open ? "justify-start" : "justify-center"
+                      open ? "justify-start" : "justify-start"
                     } shadow gap-2 p-3 rounded-lg transition-width duration-300 ${
-                      open ? "w-56" : "w-16"
+                      open ? "lg:w-56 w-full" : "w-[60px]"
                     }`}
                   >
                     {open ? (
@@ -447,7 +447,7 @@ const NewComplaint = () => {
                   </button>
                 </div>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between lg:mt-0 mt-5">
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">*Bina / Ev</label>
                   <input
@@ -456,7 +456,7 @@ const NewComplaint = () => {
                     className=" border p-2 rounded-md"
                   />
                 </div>
-                <div className="w-[1px] bg-[#DEE2E6] rotate-30"></div>
+                <div className="lg:w-[1px] lg:block hidden bg-[#DEE2E6] rotate-30"></div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Mənzil</label>
                   <input
@@ -467,7 +467,7 @@ const NewComplaint = () => {
                 </div>
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">Əlaqə nömrəsi</label>
-                  <div>
+                  <div className="lg:block flex items-center">
                     +994
                     <select
                       name=""
@@ -516,7 +516,7 @@ const NewComplaint = () => {
           choose ? "flex" : "hidden"
         }`}
       >
-        <div className="w-2/5 overflow-hidden flex justify-center">
+        <div className="lg:w-2/5 w-5/6 overflow-hidden flex justify-center">
           <img src={fileContent} className="" alt="" />
         </div>
         <RiFullscreenExitLine

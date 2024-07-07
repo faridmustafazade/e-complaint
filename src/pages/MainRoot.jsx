@@ -6,7 +6,7 @@ const MainRoot = () => {
   return (
     <div className="w-full flex">
       <Sidebar />
-      <div className="sm:w-full w-[82%]">
+      <div className="lg:w-full md:w-[91%] <sm:w-[88%] w-[82%]">
         <Header />
         <Outlet/>
       </div>

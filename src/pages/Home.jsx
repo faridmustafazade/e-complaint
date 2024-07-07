@@ -71,7 +71,7 @@ const Home = () => {
 
   return (
     <div className="px-5 py-10">
-      <div className="flex flex-col sm:flex-row items-center sm:justify-between sm:gap-0 gap-5">
+      <div className="flex flex-col lg:flex-row md:items-start lg:items-center sm:justify-between lg:gap-0 gap-5">
         <div className="w-full sm:w-auto flex flex-col sm:flex-row sm:items-center gap-5">
           <Link
             to={"new_complaint"}

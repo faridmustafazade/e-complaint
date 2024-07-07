@@ -129,7 +129,7 @@ const Sidebar = () => {
           choose ? "flex bg-opacity-80" : "hidden"
         }`}
       >
-        <div className="sm:w-2/5 mx-5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
+        <div className="w-11/12 lg:w-2/5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
           <div className="flex items-center gap-5">
             <TbHandClick className="text-3xl text-primaryColor" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>

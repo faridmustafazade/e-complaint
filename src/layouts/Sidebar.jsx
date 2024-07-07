@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="h-screen bg-[#eaebed] flex flex-col justify-between border-r shadow fixed z-[999] left-0">
+      <aside className="sticky top-0 h-screen bg-[#eaebed] flex flex-col justify-between border-r shadow">
         <div>
           <div
             className={`p-4 pb-2 flex  items-center ${
@@ -25,10 +25,10 @@ const Sidebar = () => {
               className={`
            flex justify-between items-center
            overflow-hidden transition-all ${
-             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+             click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
            }`}
             >
-              <img src={logo} className="w-52 max-w-52" alt="" />
+              <img src={logo} className="w-44 max-w-44" alt="" />
             </div>
             <button
               onClick={() => setClick(!click)}
@@ -42,7 +42,7 @@ const Sidebar = () => {
             </button>
           </div>
 
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="mt-10 flex flex-col items-center gap-3">
             <Link
               to={"/new_complaint"}
               className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
@@ -52,7 +52,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >
@@ -70,7 +70,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >
@@ -88,7 +88,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >

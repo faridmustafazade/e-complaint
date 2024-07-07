@@ -14,13 +14,13 @@ const Header = () => {
     <div className="relative">
       <div className="flex justify-between items-center p-5 border-b ">
         <Link to={"https://icta.az/"} target="_blank">
-          <img src={logo} className="w-64" alt="icta" />
+          <img src={logo} className="w-44 md:w-64" alt="icta" />
         </Link>
         <div
           onClick={handleClick}
           className="flex items-center gap-5 cursor-pointer"
         >
-          <p className="uppercase">FARİD MUSTAFAZADƏ MUSTAFA OĞLU</p>
+          <p className="uppercase hidden md:block">FARİD MUSTAFAZADƏ MUSTAFA OĞLU</p>
           <div className="border border-[#BDBDBD] rounded-full p-1">
             <HiUser className="text-[#BDBDBD] text-4xl" />
           </div>

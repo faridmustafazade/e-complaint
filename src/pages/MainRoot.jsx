@@ -4,11 +4,11 @@ import Header from "../layouts/Header";
 import Sidebar from "../layouts/Sidebar";
 const MainRoot = () => {
   return (
-    <div className="w-full flex justify-end">
+    <div className="w-full flex">
       <Sidebar />
-      <div className="w-[95%]">
+      <div className="w-full">
         <Header />
-        <Outlet />
+        <Outlet/>
       </div>
     </div>
   );

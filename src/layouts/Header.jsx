@@ -29,12 +29,12 @@ const Header = () => {
         </div>
       </div>
       <div
-        className={`w-full absolute z-[999] justify-end sm:px-16  mr-2 ${
+        className={`w-full absolute right-4 z-[999] justify-end  ${
           active ? "flex" : "hidden"
         }`}
       >
         <div className="pl-3 pr-10 py-4 shadow-md bg-white flex flex-col gap-5 rounded-lg">
-          <p className="text-xs uppercase text-[#705EDF] font-medium">
+          <p className="text-xs sm:text-base uppercase text-[#705EDF] font-medium">
             FARİD MUSTAFAZADƏ MUSTAFA OĞLU
           </p>
           <div className="flex items-center gap-4">

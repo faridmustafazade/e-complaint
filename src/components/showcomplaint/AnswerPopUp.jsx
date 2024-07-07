@@ -16,7 +16,7 @@ const AnswerPopUp = ({ choose, setChoose }) => {
           <p className="text-center text-3xl font-semibold text-[#595959]">
             Cavabınızdan əminsinizmi?
           </p>
-          <span className="text-xl text-[#595959]">
+          <span className="text-center text-xl text-[#595959]">
             Bu prosesi geri qaytara bilməzsiniz!
           </span>
           <div className="w-full flex gap-2 items-center">

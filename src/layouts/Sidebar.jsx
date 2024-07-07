@@ -15,7 +15,7 @@ const Sidebar = () => {
   return (
     <>
       <aside className="h-screen fixed z-[999] left-0 flex flex-col">
-        <nav className="h-full flex flex-col justify-between bg-[#eaebed] border-r shadow">
+        <nav className="h-screen flex flex-col justify-between bg-[#eaebed] border-r shadow">
           <div>
             <div
               className={`p-4 pb-2 flex  items-center ${

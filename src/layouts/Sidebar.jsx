@@ -5,7 +5,6 @@ import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { TfiMenuAlt } from "react-icons/tfi";
-import { TbHandClick } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 const Sidebar = () => {

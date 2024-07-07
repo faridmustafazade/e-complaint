@@ -129,7 +129,7 @@ const Sidebar = () => {
           choose ? "flex bg-opacity-80" : "hidden"
         }`}
       >
-        <div className="w-2/5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
+        <div className="sm:w-2/5 mx-5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
           <div className="flex items-center gap-5">
             <TbHandClick className="text-3xl text-primaryColor" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>
@@ -146,13 +146,13 @@ const Sidebar = () => {
                 "https://docs.google.com/forms/d/e/1FAIpQLSc-1AMXNpayyZXs-iGtaHXnyiLsbTc9hwFpBwbrXVxvqwx8AA/viewform"
               }
               target="_blank"
-              className="bg-primaryColor px-8 py-2 rounded-2xl text-white text-xl"
+              className="bg-primaryColor px-8 py-2 rounded-md text-white text-xl"
             >
               Davam et
             </Link>
             <button
               onClick={() => setChoose(false)}
-              className="bg-primaryColor px-8 py-2 rounded-2xl text-white text-xl"
+              className="bg-primaryColor px-8 py-2 rounded-md text-white text-xl"
             >
               Imtina et
             </button>

@@ -25,10 +25,10 @@ const Sidebar = () => {
               className={`
            flex justify-between items-center
            overflow-hidden transition-all ${
-             click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
            }`}
             >
-              <img src={logo} className="w-44 max-w-44" alt="" />
+              <img src={logo} className="w-52 max-w-52" alt="" />
             </div>
             <button
               onClick={() => setClick(!click)}
@@ -42,7 +42,7 @@ const Sidebar = () => {
             </button>
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-3">
+          <div className="mt-10 flex flex-col gap-3">
             <Link
               to={"/new_complaint"}
               className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
@@ -52,7 +52,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >
@@ -70,7 +70,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >
@@ -88,7 +88,7 @@ const Sidebar = () => {
                 className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
-                click ? "w-44 ml-3 opacity-100" : "w-0 opacity-0"
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
               >
@@ -129,7 +129,7 @@ const Sidebar = () => {
           choose ? "flex bg-opacity-80" : "hidden"
         }`}
       >
-        <div className="w-11/12 lg:w-2/5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
+        <div className="w-11/12 lg:w-2/5 mx-5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
           <div className="flex items-center gap-5">
             <TbHandClick className="text-3xl text-primaryColor" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>

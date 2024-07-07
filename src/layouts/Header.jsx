@@ -20,19 +20,21 @@ const Header = () => {
           onClick={handleClick}
           className="flex items-center gap-5 cursor-pointer"
         >
-          <p className="uppercase hidden md:block">FARİD MUSTAFAZADƏ MUSTAFA OĞLU</p>
+          <p className="uppercase hidden md:block">
+            FARİD MUSTAFAZADƏ MUSTAFA OĞLU
+          </p>
           <div className="border border-[#BDBDBD] rounded-full p-1">
             <HiUser className="text-[#BDBDBD] text-4xl" />
           </div>
         </div>
       </div>
       <div
-        className={`w-full absolute z-[999] justify-end px-16 ${
+        className={`w-full absolute z-[999] justify-end sm:px-16  mr-2 ${
           active ? "flex" : "hidden"
         }`}
       >
         <div className="pl-3 pr-10 py-4 shadow-md bg-white flex flex-col gap-5 rounded-lg">
-          <p className="uppercase text-[#705EDF] font-medium">
+          <p className="text-xs uppercase text-[#705EDF] font-medium">
             FARİD MUSTAFAZADƏ MUSTAFA OĞLU
           </p>
           <div className="flex items-center gap-4">

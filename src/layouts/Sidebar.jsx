@@ -101,28 +101,6 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        <div
-          className={`p-4 pb-2 flex  items-center bg-[#e2e3e4] shadow ${
-            click ? "justify-between" : "justify-center"
-          }`}
-        >
-          <div
-            className={`
-           flex justify-between items-center
-           overflow-hidden transition-all ${
-             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
-           }`}
-          >
-            <p className="w-52 max-w-52 font-semibold" alt="">
-              Çıxış
-            </p>
-          </div>
-          <button onClick={() => setClick(!click)} className="p-1.5 rounded-lg">
-            <CiLogout
-              className={`text-2xl duration-500 ${click && "rotate-180"}`}
-            />
-          </button>
-        </div>
       </aside>
       <div
         className={`fixed inset-0 bg-black z-[9999] flex justify-center items-center ${
@@ -158,6 +136,28 @@ const Sidebar = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div
+        className={`fixed bottom-0 p-4 pb-2 flex  items-center bg-[#e2e3e4] shadow ${
+          click ? "justify-between" : "justify-center"
+        }`}
+      >
+        <div
+          className={`
+           flex justify-between items-center
+           overflow-hidden transition-all ${
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+           }`}
+        >
+          <p className="w-52 max-w-52 font-semibold" alt="">
+            Çıxış
+          </p>
+        </div>
+        <button onClick={() => setClick(!click)} className="p-1.5 rounded-lg">
+          <CiLogout
+            className={`text-2xl duration-500 ${click && "rotate-180"}`}
+          />
+        </button>
       </div>
     </>
   );

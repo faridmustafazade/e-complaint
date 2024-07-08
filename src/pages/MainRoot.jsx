@@ -4,9 +4,9 @@ import Header from "../layouts/Header";
 import Sidebar from "../layouts/Sidebar";
 const MainRoot = () => {
   return (
-    <div className="w-full flex overflow-x-hidden">
+    <div className="w-full flex">
       <Sidebar />
-      <div className="lg:w-full md:w-[91%] <sm:w-[88%] w-[82%]">
+      <div className="lg:w-full md:w-[91%] <sm:w-[88%] w-[82%] overflow-y-auto">
         <Header />
         <Outlet/>
       </div>

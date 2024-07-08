@@ -5,17 +5,19 @@ import { HiUser } from "react-icons/hi";
 import { RxExit } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ click }) => {
   const [active, setActive] = useState(false);
   function handleClick() {
     setActive(!active);
   }
   return (
-    <div className="relative">
-      <div className="flex justify-between items-center p-5 border-b ">
-        <Link to={"https://icta.az/"} target="_blank">
-          <img src={logo} className="w-44 md:w-64" alt="icta" />
-        </Link>
+    <div className="relative ">
+      <div className={`flex ${click?"justify-end":"justify-between"} items-center p-5 border-b`}>
+        {!click && (
+          <Link to={"https://icta.az/"} target="_blank">
+            <img src={logo} className="w-44 md:w-64" alt="icta" />
+          </Link>
+        )}
         <div
           onClick={handleClick}
           className="flex items-center gap-5 cursor-pointer"

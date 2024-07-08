@@ -182,7 +182,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="select-none flex items-center justify-between mt-5">
+      <div className="select-none flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between mt-5">
         <p>
           Göstərilən:{" "}
           {paginatedComplaints.length > 0

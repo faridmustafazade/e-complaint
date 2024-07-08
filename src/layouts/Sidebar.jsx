@@ -146,13 +146,13 @@ const Sidebar = () => {
                 "https://docs.google.com/forms/d/e/1FAIpQLSc-1AMXNpayyZXs-iGtaHXnyiLsbTc9hwFpBwbrXVxvqwx8AA/viewform"
               }
               target="_blank"
-              className="bg-primaryColor w-1/2 text-center px-8 py-2 rounded-md text-white text-xl"
+              className="bg-primaryColor w-1/2 text-center px-8 py-2 rounded-md text-white"
             >
               Davam et
             </Link>
             <button
               onClick={() => setChoose(false)}
-              className="bg-[#FF0000] w-1/2 px-8 py-2 rounded-md text-white text-xl"
+              className="bg-[#FF0000] w-1/2 px-8 py-2 rounded-md text-white"
             >
               Imtina et
             </button>

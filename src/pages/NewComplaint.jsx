@@ -388,6 +388,7 @@ const NewComplaint = () => {
                   </label>
                   <input
                     value={values}
+                    onChange={(e) => setValues(e.target.value)}
                     disabled={
                       city == null
                         ? true
@@ -432,7 +433,10 @@ const NewComplaint = () => {
                   >
                     {open ? (
                       <FaCircleMinus
-                        onClick={() => setOpen(!open)}
+                        onClick={() => {
+                          setOpen(!open);
+                          setValues("");
+                        }}
                         className={`text-4xl cursor-pointer`}
                       />
                     ) : (

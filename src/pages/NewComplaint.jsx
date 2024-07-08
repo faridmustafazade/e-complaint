@@ -19,7 +19,7 @@ const NewComplaint = () => {
   //keyDown function
   const [text, setText] = useState([]);
   const onKeyDown = (e) => {
-    const { key } = e;
+    const { key, ctrlKey } = e;
     const ignoredKeys = [
       "Backspace",
       "Delete",
@@ -34,10 +34,21 @@ const NewComplaint = () => {
       "Enter",
       "Shift",
     ];
+
     if (!ignoredKeys.includes(key)) {
-      setText([...text, key]);
+      if (ctrlKey && key.toLowerCase() === "a" && ctrlKey) {
+        return;
+      }
+      if (key.toLowerCase() === "c") {
+        return;
+      }
+      if (key.toLowerCase() === "v") {
+        return;
+      } else {
+        setText((prevText) => [...prevText, key]);
+      }
     } else if (key === "Backspace") {
-      setText(text.slice(0, -1));
+      setText((prevText) => prevText.slice(0, -1));
     }
   };
 

@@ -15,7 +15,7 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [sortBy, setSortBy] = useState("");
-
+  console.log(sortBy);
   const handleSort = (column) => {
     if (column === sortBy) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -70,7 +70,7 @@ const Home = () => {
   }, [currentPage, sortedComplaints]);
 
   return (
-    <div className="px-5 py-10">
+    <div className="select-none px-5 py-10">
       <div className="flex flex-col lg:flex-row md:items-start lg:items-center sm:justify-between lg:gap-0 gap-5">
         <div className="w-full sm:w-auto flex flex-col sm:flex-row sm:items-center gap-5">
           <Link
@@ -100,41 +100,62 @@ const Home = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-md mt-10 lg:overflow-hidden overflow-x-scroll">
-        <div className="flex items-center justify-between bg-primaryColor text-white lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
+        <div className="cursor-pointer flex items-center justify-between bg-primaryColor text-white lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
           <TableName
             name={"Şikayət nömrəsi"}
             width={12}
             onClick={() => handleSort("complaint_number")}
+            title={"complaint_number"}
+            sortOrder={sortOrder}
+            sortBy={sortBy}
           />
           <TableName
             name={"Fəaliyyət sahəsi"}
             width={16}
             onClick={() => handleSort("field_of_action")}
+            title={"field_of_action"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <TableName
             name={"Şirkət"}
             width={10}
             onClick={() => handleSort("company")}
+            title={"company"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <TableName
             name={"Mövzu"}
             width={13}
             onClick={() => handleSort("subject")}
+            title={"subject"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <TableName
             name={"Abunəçi kodu"}
             width={13}
             onClick={() => handleSort("subscriber_code")}
+            title={"subscriber_code"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <TableName
             name={"Status"}
             width={14}
             onClick={() => handleSort("status")}
+            title={"status"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <TableName
             name={"Tarix"}
             width={10}
             onClick={() => handleSort("date")}
+            title={"date"}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
           />
           <div className="max-w-[12%] w-[12%] flex items-center justify-center py-5">
             <p>Əməliyyatlar</p>

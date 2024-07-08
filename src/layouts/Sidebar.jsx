@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import hand from "../assets/images/svg/hand.svg";
+import bluehand from "../assets/images/svg/blue-hand.svg";
 import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
@@ -130,7 +131,7 @@ const Sidebar = () => {
       >
         <div className="w-11/12 lg:w-2/5 mx-5 h-64 overflow-hidden bg-white p-5 flex flex-col gap-10 rounded-bl-3xl rounded-tr-3xl">
           <div className="flex items-center gap-5">
-            <img src={hand} alt="hand" className="text-3xl text-primaryColor" />
+            <img src={bluehand} alt="hand" className="text-3xl" />
             <p className="text-primaryColor text-4xl font-semibold">Sorğu</p>
           </div>
 
@@ -139,19 +140,19 @@ const Sidebar = () => {
               İnternet xidmətləri üzrə istehlakçı təcrübəsi sorğusu
             </p>
           </div>
-          <div className="flex items-center justify-evenly">
+          <div className="flex items-center gap-5">
             <Link
               to={
                 "https://docs.google.com/forms/d/e/1FAIpQLSc-1AMXNpayyZXs-iGtaHXnyiLsbTc9hwFpBwbrXVxvqwx8AA/viewform"
               }
               target="_blank"
-              className="bg-primaryColor px-8 py-2 rounded-md text-white text-xl"
+              className="bg-primaryColor w-1/2 text-center px-8 py-2 rounded-md text-white text-xl"
             >
               Davam et
             </Link>
             <button
               onClick={() => setChoose(false)}
-              className="bg-primaryColor px-8 py-2 rounded-md text-white text-xl"
+              className="bg-[#FF0000] w-1/2 px-8 py-2 rounded-md text-white text-xl"
             >
               Imtina et
             </button>

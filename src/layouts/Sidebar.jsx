@@ -48,9 +48,11 @@ const Sidebar = () => {
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
               <div class="has-tooltip flex">
-                <span class="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
-                  Yeni şikayət yarat
-                </span>
+                {!click && (
+                  <span class="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
+                    Yeni şikayət yarat
+                  </span>
+                )}
                 <FiPlus className="w-5 h-5 rounded-md" />
                 <div
                   className={`
@@ -71,9 +73,11 @@ const Sidebar = () => {
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
               <div class="has-tooltip flex">
-                <span class="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
-                  Şikayətlər
-                </span>
+                {!click && (
+                  <span class="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                    Şikayətlər
+                  </span>
+                )}
                 <TfiMenuAlt className="w-5 h-5 rounded-md" />
                 <div
                   className={`
@@ -94,9 +98,11 @@ const Sidebar = () => {
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
               <div class="has-tooltip flex">
-                <span class="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
-                  İstehlakçı təcrübəsi sorğusu
-                </span>
+                {!click && (
+                  <span class="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                    İstehlakçı təcrübəsi sorğusu
+                  </span>
+                )}
                 <img src={hand} alt="hand" className="w-5 h-5 rounded-md" />
                 <div
                   className={`

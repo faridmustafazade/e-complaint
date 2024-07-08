@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="sticky top-0 h-screen bg-[#eaebed] flex flex-col justify-between border-r shadow">
+      <aside className="sticky top-0  bg-[#eaebed] flex flex-col  border-r shadow">
         <div>
           <div
             className={`p-4 pb-2 flex  items-center ${

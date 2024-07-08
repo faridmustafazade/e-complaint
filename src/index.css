@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
+.tooltip {
+  @apply invisible absolute transition-transform duration-300 transform -translate-y-5;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50 translate-y-0;
+}
 @tailwind utilities;
+
 body {
   background-color: #f9f9f9;
   font-family: sans-serif;
@@ -43,7 +51,7 @@ body {
   background-color: white;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3C6CB4;
+  background: #3c6cb4;
   border-radius: 10px;
   width: 5px;
 }

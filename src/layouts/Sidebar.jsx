@@ -45,57 +45,72 @@ const Sidebar = () => {
           <div className="mt-10 flex flex-col gap-3">
             <Link
               to={"/new_complaint"}
-              className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <FiPlus className="w-5 h-5 rounded-md" />
-              <div
-                className={`
+              <div class="has-tooltip flex">
+                <span class="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
+                  Yeni şikayət yarat
+                </span>
+                <FiPlus className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
                 click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
-              >
-                <div className="leading-4">
-                  <h4 className="w-44 max-w-44">Yeni şikayət yarat</h4>
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44 max-w-44">Yeni şikayət yarat</h4>
+                  </div>
                 </div>
               </div>
             </Link>
             <Link
               to={"/"}
-              className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <TfiMenuAlt className="w-5 h-5 rounded-md" />
-              <div
-                className={`
+              <div class="has-tooltip flex">
+                <span class="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  Şikayətlər
+                </span>
+                <TfiMenuAlt className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
                 click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
-              >
-                <div className="leading-4">
-                  <h4 className="w-44">Şikayətlər</h4>
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44">Şikayətlər</h4>
+                  </div>
                 </div>
               </div>
             </Link>
             <div
               onClick={() => setChoose(true)}
-              className="cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <img src={hand} alt="hand" className="w-5 h-5 rounded-md" />
-              <div
-                className={`
+              <div class="has-tooltip flex">
+                <span class="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  İstehlakçı təcrübəsi sorğusu
+                </span>
+                <img src={hand} alt="hand" className="w-5 h-5 rounded-md" />
+                <div
+                  className={`
               flex justify-between items-center
               overflow-hidden transition-all ${
                 click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
               }
           `}
-              >
-                <div className="leading-4">
-                  <h4 className="w-44 text-sm">
-                    İstehlakçı təcrübəsi sorğusu{" "}
-                  </h4>
+                >
+                  <div className="leading-4">
+                    <h4 className="w-44 text-sm">
+                      İstehlakçı təcrübəsi sorğusu{" "}
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>

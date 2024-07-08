@@ -5,6 +5,7 @@ import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { PiTrashSimpleFill } from "react-icons/pi";
 import { Character, Company, Field_Of_Action } from "../data/Complaint";
 import "../index.css";
+import { Helmet } from "react-helmet";
 const NewComplaint = () => {
   const [type, setType] = useState(null);
   const [city, setCity] = useState(null);
@@ -64,6 +65,11 @@ const NewComplaint = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Yeni şikayət</title>
+        <meta name="description" content="Yeni şikayət" />
+        <meta name="theme-color" content="#ccc" />
+      </Helmet>
       <div className="px-3 py-6 lg:px-5 lg:py-10">
         <div className="rounded-t-lg overflow-hidden">
           <div className="bg-primaryColor py-5">

@@ -137,7 +137,8 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div
+      <Link
+        to={"https://icta.az/"}
         className={`fixed bottom-0 left-0 z-[1009] p-4 pb-2 flex  items-center bg-[#e2e3e4] shadow ${
           click ? "justify-between" : "justify-center"
         }`}
@@ -153,12 +154,12 @@ const Sidebar = () => {
             Çıxış
           </p>
         </div>
-        <button onClick={() => setClick(!click)} className="p-1.5 rounded-lg">
+        <button className="p-1.5 rounded-lg">
           <CiLogout
             className={`text-2xl duration-500 ${click && "rotate-180"}`}
           />
         </button>
-      </div>
+      </Link>
     </>
   );
 };

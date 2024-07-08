@@ -3,6 +3,7 @@ import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { IoIosArrowDown, IoMdArrowRoundDown } from "react-icons/io";
 import AnswerPopUp from "../components/showcomplaint/AnswerPopUp";
 import ApplyPopUp from "../components/showcomplaint/ApplyPopUp";
+import { Helmet } from "react-helmet";
 
 const ShowComplaint = () => {
   const [open, setOpen] = useState(true);
@@ -18,6 +19,11 @@ const ShowComplaint = () => {
     "Salam. Bir müddət öncə internet çəkilməsi ilə bağlı müraciət etdim, gəlib baxdıqları zaman qutularda yer olmadığı söylədilər. Ama yenədə baxacaqlarını dedilər. Hələki xəbər yoxdur. Sizdən internet çəkilməsi ilə bağlı mənə kömək etməyinizi xahiş edirəm.";
   return (
     <>
+      <Helmet>
+        <title>Şikayət məlumatları</title>
+        <meta name="description" content="Şikayət məlumatları" />
+        <meta name="theme-color" content="#ccc" />
+      </Helmet>
       <div className="px-3 py-6 lg:px-5 lg:py-10 flex flex-col gap-10">
         <div className="rounded-lg shadow overflow-hidden">
           <div

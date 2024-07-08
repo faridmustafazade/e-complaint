@@ -256,6 +256,12 @@ const NewComplaint = () => {
                     type="text"
                     name=""
                     id=""
+                    onChange={(e) => {
+                      const { value } = e.target;
+                      if (value.length <= 1000) {
+                        setText(value);
+                      }
+                    }}
                     onKeyDown={onKeyDown}
                     placeholder="Maksimum 1000 simvol"
                     className="border rounded-md p-5"

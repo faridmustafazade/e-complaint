@@ -53,7 +53,7 @@ const Sidebar = () => {
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px] text-black translate-x-12 rounded p-1 bg-white">
+                  <span className="md:block hidden px-4 py-2 shadow tooltip w-48 text-sm text-center top-[4px] text-black translate-x-12 rounded p-1 bg-white">
                     Yeni şikayət yarat
                   </span>
                 )}
@@ -67,7 +67,9 @@ const Sidebar = () => {
           `}
                 >
                   <div className="leading-4">
-                    <h4 className="w-44 max-w-44 text-sm">Yeni şikayət yarat</h4>
+                    <h4 className="w-44 max-w-44 text-sm">
+                      Yeni şikayət yarat
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -82,7 +84,7 @@ const Sidebar = () => {
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white text-black">
+                  <span className="md:block hidden px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white text-black">
                     Şikayətlər
                   </span>
                 )}
@@ -107,7 +109,7 @@ const Sidebar = () => {
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  <span className="md:block hidden px-4 py-2 shadow tooltip w-64 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
                     İstehlakçı təcrübəsi sorğusu
                   </span>
                 )}

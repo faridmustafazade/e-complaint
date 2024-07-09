@@ -17,6 +17,7 @@ const NewComplaint = () => {
 
   //keyDown function
   const [text, setText] = useState([]);
+  console.log(text.length);
   const onKeyDown = (e) => {
     const { key, ctrlKey } = e;
     const ignoredKeys = [
@@ -33,22 +34,30 @@ const NewComplaint = () => {
       "Enter",
       "Shift",
     ];
-
-    if (!ignoredKeys.includes(key)) {
-      if (ctrlKey && key.toLowerCase() === "a" && ctrlKey) {
-        return;
+    if (text.length < 1000) {
+      if (!ignoredKeys.includes(key)) {
+        if (ctrlKey && key.toLowerCase() === "a") {
+          return;
+        }
+        if (key.toLowerCase() === "c") {
+          return;
+        }
+        if (key.toLowerCase() === "v") {
+          return;
+        }
+        if (key.toLowerCase() === "z") {
+          return;
+        }
+        if (key.toLowerCase() === "x") {
+          return;
+        } else {
+          setText((prevText) => [...prevText, key]);
+        }
+      } else if (key === "Backspace") {
+        setText((prevText) => prevText.slice(0, -1));
       }
-      if (key.toLowerCase() === "c") {
-        return;
-      }
-      if (key.toLowerCase() === "v") {
-        return;
-      } else {
-        setText((prevText) => [...prevText, key]);
-      }
-    } else if (key === "Backspace") {
-      setText((prevText) => prevText.slice(0, -1));
     }
+    return;
   };
 
   //data
@@ -257,7 +266,15 @@ const NewComplaint = () => {
                     Şikayət mətni{" "}
                     <span className="text-sm">
                       (Qalan simvol sayı:{" "}
-                      <span className="text-red-700">{1000 - text.length}</span>
+                      <span
+                        className={`${
+                          text.length === 1000
+                            ? "text-[#FF0000]"
+                            : "text-primaryColor"
+                        }`}
+                      >
+                        {1000 - text.length}
+                      </span>
                       )
                     </span>
                   </label>
@@ -266,6 +283,7 @@ const NewComplaint = () => {
                     type="text"
                     name=""
                     id=""
+                    maxLength={1000}
                     onChange={(e) => {
                       const { value } = e.target;
                       if (value.length <= 1000) {
@@ -308,15 +326,15 @@ const NewComplaint = () => {
                     <>
                       {fileContent.includes("image") ? (
                         <div className="relative">
-                          <div className="absolute inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
+                          <div className="absolute rounded-md group-hover:bg-black group-hover:bg-opacity-70 inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
                             <PiTrashSimpleFill
                               onClick={() => {
                                 setFileContent(null);
                               }}
-                              className="text-primaryColor text-4xl"
+                              className="text-white text-4xl"
                             />
                             <RiFullscreenLine
-                              className="text-primaryColor text-4xl"
+                              className="text-white text-4xl"
                               onClick={() => setChoose(true)}
                             />
                           </div>
@@ -324,15 +342,15 @@ const NewComplaint = () => {
                         </div>
                       ) : (
                         <div className="relative">
-                          <div className="absolute inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
+                          <div className="absolute rounded-md group-hover:bg-black group-hover:bg-opacity-70 inset-0 justify-center items-center gap-5 hidden group-hover:flex transition ease-in-out duration-300">
                             <PiTrashSimpleFill
                               onClick={() => {
                                 setFileContent(null);
                               }}
-                              className="text-primaryColor text-4xl"
+                              className="text-white text-4xl"
                             />
                           </div>
-                          <p>{fileContent}</p>
+                          <p className="px-2 py-10">{fileContent}</p>
                         </div>
                       )}
                     </>

@@ -6,7 +6,7 @@ import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import { TfiMenuAlt } from "react-icons/tfi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
@@ -43,13 +43,17 @@ const Sidebar = () => {
           </div>
 
           <div className="mt-10 flex flex-col gap-3">
-            <Link
+            <NavLink
               to={"/new_complaint"}
-              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-primaryColor relative cursor-pointer text-white flex p-3  mx-3 rounded-md"
+                  : "relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              }
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
+                  <span className="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px] text-black translate-x-12 rounded p-1 bg-white">
                     Yeni şikayət yarat
                   </span>
                 )}
@@ -63,18 +67,22 @@ const Sidebar = () => {
           `}
                 >
                   <div className="leading-4">
-                    <h4 className="w-44 max-w-44">Yeni şikayət yarat</h4>
+                    <h4 className="w-44 max-w-44 text-sm">Yeni şikayət yarat</h4>
                   </div>
                 </div>
               </div>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to={"/"}
-              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className={({ isActive }) =>
+                isActive
+                  ? "relative cursor-pointer text-white bg-primaryColor flex p-3  mx-3 rounded-md"
+                  : "relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              }
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  <span className="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white text-black">
                     Şikayətlər
                   </span>
                 )}
@@ -88,11 +96,11 @@ const Sidebar = () => {
           `}
                 >
                   <div className="leading-4">
-                    <h4 className="w-44">Şikayətlər</h4>
+                    <h4 className="w-44 text-sm">Şikayətlər</h4>
                   </div>
                 </div>
               </div>
-            </Link>
+            </NavLink>
             <div
               onClick={() => setChoose(true)}
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
@@ -113,7 +121,7 @@ const Sidebar = () => {
           `}
                 >
                   <div className="leading-4">
-                    <h4 className="w-44 text-sm">
+                    <h4 className="w-44 text-xs">
                       İstehlakçı təcrübəsi sorğusu{" "}
                     </h4>
                   </div>

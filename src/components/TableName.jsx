@@ -5,7 +5,7 @@ const TableName = ({ name, width, onClick, sortOrder, sortBy, title }) => {
   return (
     <div
       onClick={onClick}
-      className={`max-w-[${width}%] w-[${width}%] flex items-center justify-between border-r pl-5 py-5 pr-2`}
+      className={`text-sm lg:text-base max-w-[${width}%] w-[${width}%] flex items-center justify-between border-r pl-5 py-5 pr-2`}
     >
       <p>{name}</p>
       {sortBy === title ? (

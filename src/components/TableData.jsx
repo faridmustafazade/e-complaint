@@ -21,13 +21,19 @@ const TableData = ({
         status === "Gecikir" && "bg-[#FFBDBD]"
       } ${watch && "font-bold"} `}
     >
-      <p className="w-[12%] text-sm break-words py-3">{complaint_number}</p>
-      <p className="w-[16%] text-sm break-words py-3">{field_of_action}</p>
-      <p className="w-[10%] text-sm break-words py-3">{company}</p>
-      <p className="w-[13%] text-sm break-words py-3">{subject}</p>
-      <p className="w-[13%] text-sm break-words py-3">{subscriber_code}</p>
-      <p className="w-[14%] text-sm break-words py-3">{status}</p>
-      <p className="w-[10%] text-sm break-words py-3">{date}</p>
+      <p className="w-[12%] lg:text-sm text-xs  break-words py-3">
+        {complaint_number}
+      </p>
+      <p className="w-[16%] lg:text-sm text-xs break-words py-3">
+        {field_of_action}
+      </p>
+      <p className="w-[10%] lg:text-sm text-xs break-words py-3">{company}</p>
+      <p className="w-[13%] lg:text-sm text-xs break-words py-3">{subject}</p>
+      <p className="w-[13%] lg:text-sm text-xs break-words py-3">
+        {subscriber_code}
+      </p>
+      <p className="w-[14%] lg:text-sm text-xs break-words py-3">{status}</p>
+      <p className="w-[10%] lg:text-sm text-xs break-words py-3">{date}</p>
       <Link to={url} className="w-[12%] py-3 flex gap-3 justify-end pr-10">
         {icra === "təkrar şikayət" ? (
           <img src={rotation} alt="rotation" />

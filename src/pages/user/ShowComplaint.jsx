@@ -24,7 +24,7 @@ const ShowComplaint = () => {
         <meta name="description" content="Şikayət məlumatları" />
         <meta name="theme-color" content="#ccc" />
       </Helmet>
-      <div className="px-3 py-6 lg:px-5 lg:py-10 flex flex-col gap-10">
+      <div className="px-3 py-6 lg:px-5 lg:py-10 flex flex-col gap-7">
         <div className="rounded-lg shadow overflow-hidden">
           <div
             onClick={() => setOpen(!open)}
@@ -50,33 +50,33 @@ const ShowComplaint = () => {
             <div className="overflow-hidden">
               <div className="overflow-hidden select-none border border-[#d7d7d7] flex flex-col lg:flex-row gap-5 lg:gap-0 items-start p-5 rounded-md">
                 <div className="w-full lg:w-[49%] flex flex-col gap-5">
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">Fin:</span> 7NHAMN5
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">Ad, soyad, ata adı:</span> FARİD
                     MUSTAFAZADƏ MUSTAFA OĞLU
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">Abunəçi kodu:</span> Yoxdur
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">
                       Müraciət olunan provayder:
                     </span>{" "}
                     CİTYNET
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">
                       Müraciət xarakteristikası:
                     </span>{" "}
                     Xidmətin qoşulması ilə bağlı şikayət (abunə əməliyyatları)
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">Müraciət müvzusu:</span> Qoşulma
                     gecikir
                   </p>
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">
                       Müraciət tarixi (gün, ay, il / saat):
                     </span>{" "}
@@ -84,38 +84,41 @@ const ShowComplaint = () => {
                   </p>
                 </div>
                 <div className="w-full lg:w-[49%] flex flex-col gap-5">
-                  <p>
+                  <p className="text-sm lg:text-base">
                     <span className="font-bold">Ünvan:</span> LƏNKƏRAN ŞƏHƏRİ,
                     Mirzə Fətəli Axundov, bina/ev No 18,
                   </p>
                   <div className="flex flex-col lg:flex-row gap-5 lg:gap-24 lg:items-center">
-                    <p>
+                    <p className="text-sm lg:text-base">
                       <span className="font-bold">Əlaqə nömrəsi:</span>{" "}
                       +994(70)523-58-02
                     </p>
-                    <p>
+                    <p className="text-sm lg:text-base">
                       <span className="font-bold">Stasionar telefon:</span>{" "}
-                      +994125444444
+                      +994(12)544-44-44
                     </p>
                   </div>
-                  <p>
-                    <span className="font-bold">E-poçt:</span> test.mail@icta.az
+                  <p className="text-sm lg:text-base">
+                    <span className="font-[700]">E-poçt:</span>{" "}
+                    mustafafarid554@gmail.com
                   </p>
                 </div>
               </div>
               <div className="overflow-hidden select-none mt-5 px-2 lg:px-0">
                 <div className="flex flex-col gap-5 w-full">
                   <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-10">
-                    <p className="w-full lg:w-[15%] font-semibold">
+                    <p className="w-full lg:text-lg text-base lg:w-[15%] font-semibold">
                       Şikayətin mövzusu:
                     </p>
-                    <span className="w-full lg:w-[85%]">Qoşulma gecikir</span>
+                    <span className="w-full lg:text-base text-sm lg:w-[85%]">
+                      Qoşulma gecikir
+                    </span>
                   </div>
                   <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-10">
-                    <p className="w-full lg:w-[15%] font-semibold">
+                    <p className="w-full lg:text-lg text-base lg:w-[15%] font-semibold">
                       Şikayətin mətni:
                     </p>
-                    <span className="w-full lg:w-[85%] lg:text-lg  bg-[#e4e9f7] italic px-2 rounded-lg">
+                    <span className="w-full lg:w-[85%] lg:text-lg text-sm  bg-[#e4e9f7] italic px-2 rounded-lg">
                       {showFullText
                         ? complaintText
                         : `${complaintText.slice(0, 150)}`}
@@ -128,8 +131,9 @@ const ShowComplaint = () => {
                     </span>
                   </div>
                   <div className="flex items-start gap-10">
-                    <p className="w-[15%] font-semibold">Fayl:</p>
-                    <span className="text-lg w-[85%]"></span>
+                    <p className="w-[15%] font-semibold lg:text-lg text-baseg">
+                      Fayl:
+                    </p>
                   </div>
                 </div>
               </div>
@@ -157,23 +161,23 @@ const ShowComplaint = () => {
           >
             <div className="overflow-hidden flex flex-col lg:flex-row items-start gap-10">
               <div>
-                <div className="flex gap-5 px-10 border-r border-[#DEE2E6]">
+                <div className="flex gap-5 lg:px-10 lg:border-r border-[#DEE2E6]">
                   <div className="flex flex-col justify-around gap-12">
-                    <span>18.05.2024</span>
-                    <span>29.05.2024</span>
+                    <span className="lg:text-base text-sm">18.05.2024</span>
+                    <span className="lg:text-base text-sm">29.05.2024</span>
                   </div>
                   <div className="relative w-2 bg-[#d9d9d9]">
-                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-[10px] h-[10px] rounded-full bg-[#9D9B9B]"></div>
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-[10px] h-[10px] rounded-full bg-[#3C6CB4]"></div>
+                    <div className="absolute top-1 lg:top-6 left-1/2 transform -translate-x-1/2 w-[10px] h-[10px] rounded-full bg-[#9D9B9B]"></div>
+                    <div className="absolute bottom-1 lg:bottom-6 left-1/2 transform -translate-x-1/2 w-[10px] h-[10px] rounded-full bg-[#3C6CB4]"></div>
                   </div>
                   <div className="flex flex-col justify-between gap-12">
-                    <p className="text-[#9D9B9B]">
+                    <p className="text-[#9D9B9B] lg:text-base text-sm">
                       Şikayət yaradıldı{" "}
                       <span className="text-sm text-[#9D9B9B] font-normal">
                         (Abunəçi)
                       </span>
                     </p>
-                    <p className="text-[#3C6CB4] font-semibold">
+                    <p className="text-[#3C6CB4] font-semibold lg:text-base text-sm">
                       Cavablandırıldı{" "}
                       <span className="text-sm text-[#9D9B9B] font-normal">
                         (İSP)
@@ -185,34 +189,38 @@ const ShowComplaint = () => {
               <div className="flex flex-col gap-5">
                 <div className="flex flex-col gap-7">
                   <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-16">
-                    <div className="flex flex-col lg:flex-row items-start gap-2">
-                      <p className="font-[600] text-lg">
+                    <div className="flex flex-col lg:flex-row lg:items-center items-start gap-2">
+                      <p className="font-bold text-sm lg:text-lg">
                         Şikayətin yaranma səbəbi:
                       </p>
-                      <span>Xidmətin qoşulması ilə bağlı şikayət (ab)</span>
+                      <span className="lg:text-base text-sm">
+                        Xidmətin qoşulması ilə bağlı şikayət (ab)
+                      </span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <p className="text-lg font-[600]">STATUS:</p>
-                      <span>Həll olunub</span>
+                    <div className="flex flex-col lg:flex-row lg:items-center items-start gap-2">
+                      <p className="font-bold text-sm lg:text-lg">STATUS:</p>
+                      <span className="lg:text-base text-sm">Həll olunub</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <p className="font-[600] text-lg">Edoc/Adoc:</p>
-                    <span>275-1300191391-7NHAMN5.adoc</span>
+                    <p className="font-bold text-sm lg:text-lg">Edoc/Adoc:</p>
+                    <span className="lg:text-base text-sm">
+                      275-1300191391-7NHAMN5.adoc
+                    </span>
                     <div className="bg-primaryColor p-1 rounded-full cursor-pointer group">
                       <IoMdArrowRoundDown className="text-white text-2xl group-hover:rotate-180 ease-in-out duration-500" />
                     </div>
                   </div>
                 </div>
                 <div className="border border-[#DEE2E6] rounded-md p-3">
-                  <p>
+                  <p className="lg:text-base text-sm">
                     Abunəçi ilə əlaqə saxlanıldı. Abunəçi çağrı mərkəzinə
                     müraciət etməyib, ərazidə olan ustalardan soruşub. İzah
                     olundu ki, rəsmi qaydada çağrı mərkəzinə zəng etsin və yeni
                     qoşulma üçün sorğu açdırsın.
                   </p>
                 </div>
-                <div className="text-end text-sm lg:text-base">
+                <div className="lg:text-end text-center text-sm lg:text-base">
                   İcraçı: CAVİD MÜRSƏLOV İLQAR OĞLU
                 </div>
               </div>
@@ -222,14 +230,14 @@ const ShowComplaint = () => {
         <div className="flex flex-col lg:flex-row lg:items-baseline items-end justify-end gap-5 lg:gap-10">
           <button
             onClick={() => setChoose(true)}
-            className="text-xl flex items-center gap-3 bg-primaryColor px-5 py-3 text-white rounded-lg"
+            className="text-xl w-full lg:w-auto flex justify-center lg:justify-normal items-center gap-3 bg-primaryColor lg:px-5 lg:py-3 py-2 text-white rounded-lg"
           >
             <AiOutlineLike />
             Cavab məni qane edir
           </button>
           <button
             onClick={() => setSuccess(true)}
-            className="text-xl flex items-center gap-3 bg-[#FF0000] px-5 py-3 text-white rounded-lg"
+            className="text-xl w-full lg:w-auto flex justify-center lg:justify-normal items-center gap-3 bg-[#FF0000] lg:px-5 lg:py-3 py-2 text-white rounded-lg"
           >
             <AiOutlineDislike />
             İKTA-ya müraciət et

@@ -95,12 +95,12 @@ const Home = () => {
             </button>
           </div>
           <div className="sm:w-auto w-full flex bg-white items-center gap-2 border border-primaryColor px-3 py-2 rounded-full group focus-within:shadow-md duration-300">
-            <IoSearch className="text-[#7878AB] text-2xl" />
+            <IoSearch className="text-[#7878AB] md:text-2xl text-lg w-[20%]" />
             <input
               onChange={(e) => setSearch(e.target.value)}
               type="text"
               placeholder="Axtar..."
-              className="outline-none"
+              className="w-[80%] outline-none"
             />
           </div>
         </div>

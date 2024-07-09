@@ -14,7 +14,7 @@ const UserComplaints = () => {
   // const [search, setSearch] = useState("");
   // const [sortOrder, setSortOrder] = useState("");
   const [sortBy, setSortBy] = useState("");
-  console.log(sortBy);
+  console.log(setSortBy);
   // const handleSort = (column) => {
   //   if (column === sortBy) {
   //     setSortOrder(sortOrder === "asc" ? "desc" : "asc");

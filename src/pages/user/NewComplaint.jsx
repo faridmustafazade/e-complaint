@@ -3,8 +3,7 @@ import { LuUpload } from "react-icons/lu";
 import { FaCheck, FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
 import { PiTrashSimpleFill } from "react-icons/pi";
-import { Character, Company, Field_Of_Action } from "../data/Complaint";
-import "../index.css";
+import { Character, Company, Field_Of_Action } from "../../data/Complaint";
 import { Helmet } from "react-helmet";
 const NewComplaint = () => {
   const [type, setType] = useState(null);

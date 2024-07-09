@@ -315,6 +315,38 @@ export const Complaint = [
     date: "18/05/2024 - 16:01",
   },
 ];
+export const User_Complaint = [
+  {
+    watch: true,
+    number: 10234,
+    abonent: "Məmmədov Vüsal Vaqif",
+    abuneci_kodu: 115664,
+    xarakteristika: "Xidmətə qoşulma",
+    tarix: "19.09.2023",
+    icra_üçün_müddət: "11 gün",
+    status: "baxılır",
+    icra: "birgə baxış",
+  },
+  {
+    number: 10234,
+    abonent: "Məmmədov Vüsal Vaqif",
+    abuneci_kodu: 115664,
+    xarakteristika: "Xidmətə qoşulma",
+    tarix: "19.09.2023",
+    icra_üçün_müddət: "Gecikir",
+    status: "baxılır",
+  },
+  {
+    number: 10234,
+    abonent: "Məmmədov Vüsal Vaqif",
+    abuneci_kodu: 115664,
+    xarakteristika: "Xidmətə qoşulma",
+    tarix: "19.09.2023",
+    icra_üçün_müddət: "11 gün",
+    status: "baxılır",
+    icra: "təkrar şikayət",
+  },
+];
 
 export const Field_Of_Action = [
   {

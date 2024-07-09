@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { IoIosArrowDown, IoMdArrowRoundDown } from "react-icons/io";
-import AnswerPopUp from "../components/showcomplaint/AnswerPopUp";
-import ApplyPopUp from "../components/showcomplaint/ApplyPopUp";
+import AnswerPopUp from "../../components/showcomplaint/AnswerPopUp";
+import ApplyPopUp from "../../components/showcomplaint/ApplyPopUp";
 import { Helmet } from "react-helmet";
 
 const ShowComplaint = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "../assets/images/logo.png";
-import hand from "../assets/images/svg/hand.svg";
-import bluehand from "../assets/images/svg/blue-hand.svg";
+import logo from "../../assets/images/logo.png";
+import hand from "../../assets/images/svg/hand.svg";
+import bluehand from "../../assets/images/svg/blue-hand.svg";
 import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
@@ -47,9 +47,9 @@ const Sidebar = () => {
               to={"/new_complaint"}
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <div class="has-tooltip flex">
+              <div className="has-tooltip flex">
                 {!click && (
-                  <span class="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
+                  <span className="px-4 py-2 shadow tooltip w-36 text-sm text-center top-[4px]  translate-x-12 rounded p-1 bg-white">
                     Yeni şikayət yarat
                   </span>
                 )}
@@ -72,9 +72,9 @@ const Sidebar = () => {
               to={"/"}
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <div class="has-tooltip flex">
+              <div className="has-tooltip flex">
                 {!click && (
-                  <span class="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  <span className="px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
                     Şikayətlər
                   </span>
                 )}
@@ -97,9 +97,9 @@ const Sidebar = () => {
               onClick={() => setChoose(true)}
               className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
-              <div class="has-tooltip flex">
+              <div className="has-tooltip flex">
                 {!click && (
-                  <span class="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
+                  <span className="px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white">
                     İstehlakçı təcrübəsi sorğusu
                   </span>
                 )}

@@ -4,10 +4,10 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { LuInfo } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import resume from "../assets/files/E-Şikayət - Abunəçi Təlimatı.pdf";
-import { Complaint } from "../data/Complaint";
-import TableName from "../components/TableName";
-import TableData from "../components/TableData";
+import resume from "../../assets/files/E-Şikayət - Abunəçi Təlimatı.pdf";
+import { Complaint } from "../../data/Complaint";
+import TableName from "../../components/TableName";
+import TableData from "../../components/TableData";
 import { Helmet } from "react-helmet";
 const Home = () => {
   const complaints = Complaint;
@@ -179,6 +179,7 @@ const Home = () => {
                   subscriber_code={complaint.subscriber_code}
                   status={complaint.status}
                   date={complaint.date}
+                  url={"show_complaint"}
                 />
               ))
             ) : (

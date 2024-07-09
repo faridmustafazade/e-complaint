@@ -47,8 +47,8 @@ const Sidebar = () => {
               to={"/new_complaint"}
               className={({ isActive }) =>
                 isActive
-                  ? "bg-primaryColor relative cursor-pointer text-white flex p-3  mx-3 rounded-md"
-                  : "relative cursor-pointer flex p-3 bg-white mx-3 rounded-md hover:bg-primaryColor hover:text-white transition-all ease-linear duration-300"
+                  ? "has-tooltip bg-primaryColor relative cursor-pointer text-white flex p-3  mx-3 rounded-md"
+                  : "has-tooltip relative cursor-pointer flex p-3 bg-white mx-3 rounded-md hover:bg-primaryColor hover:text-white transition-all ease-linear duration-300"
               }
             >
               <div className="has-tooltip flex">
@@ -78,11 +78,11 @@ const Sidebar = () => {
               to={"/"}
               className={({ isActive }) =>
                 isActive
-                  ? "relative cursor-pointer text-white bg-primaryColor flex p-3  mx-3 rounded-md"
-                  : "relative cursor-pointer flex p-3 bg-white mx-3 rounded-md hover:bg-primaryColor hover:text-white transition-all ease-linear duration-300"
+                  ? "has-tooltip relative cursor-pointer text-white bg-primaryColor flex p-3  mx-3 rounded-md"
+                  : "has-tooltip relative cursor-pointer flex p-3 bg-white mx-3 rounded-md hover:bg-primaryColor hover:text-white transition-all ease-linear duration-300"
               }
             >
-              <div className="has-tooltip flex">
+              <div className=" flex">
                 {!click && (
                   <span className="md:block hidden px-4 py-2 shadow tooltip w-32 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white text-black">
                     Şikayətlər
@@ -105,7 +105,7 @@ const Sidebar = () => {
             </NavLink>
             <div
               onClick={() => setChoose(true)}
-              className="relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
+              className="has-tooltip relative cursor-pointer flex p-3 bg-white mx-3 rounded-md"
             >
               <div className="has-tooltip flex">
                 {!click && (

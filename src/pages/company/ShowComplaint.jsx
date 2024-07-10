@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-// import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { IoIosArrowDown, IoMdArrowRoundDown } from "react-icons/io";
 import AnswerPopUp from "../../components/showcomplaint/AnswerPopUp";
 import { Helmet } from "react-helmet";
 import { LuUpload } from "react-icons/lu";
 import { PiTrashSimpleFill } from "react-icons/pi";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
+import PopUp from "../../components/company/PopUp";
+import TimePopup from "../../components/company/TimePopup";
 
 const ShowComplaint = () => {
   const [open, setOpen] = useState(true);
@@ -15,7 +16,8 @@ const ShowComplaint = () => {
   const [showFullText, setShowFullText] = useState(false);
   const [fileContent, setFileContent] = useState(null);
   const [fullScreen, setFullScreen] = useState(false);
-
+  const [timePopUp, setTimePopUp] = useState(false);
+  const [answer, setAnswer] = useState(false);
   const toggleFullText = () => {
     setShowFullText(!showFullText);
   };
@@ -159,7 +161,10 @@ const ShowComplaint = () => {
           </div>
         </div>
         <div>
-          <button className="bg-primaryColor px-8 py-1 rounded-full text-white">
+          <button
+            onClick={() => setChoose(true)}
+            className="bg-primaryColor px-8 py-1 rounded-full text-white"
+          >
             Birgə baxış yarat
           </button>
         </div>
@@ -252,21 +257,24 @@ const ShowComplaint = () => {
             className={`select-none flex items-center justify-between transition-all duration-300 ease-in-out px-5 p-5`}
           >
             <p className="font-semibold">
-              Şikayət tarixi: <span className="font-normal">19.09.2023</span>
+              Şikayət tarixi: <span className="font-normal"> 19.09.2023</span>
             </p>
             <p className="font-semibold">
               Tamamlanmalı tarix:
-              <span className="font-normal">04.10.2023</span>
+              <span className="font-normal"> 04.10.2023</span>
             </p>
             <p className="font-semibold">
               Qalan müddət:
-              <span className="font-normal">6 gün</span>
+              <span className="font-normal"> 6 gün</span>
             </p>
             <p className="font-semibold">
               Təyin olunan müddət:
-              <span className="font-normal">15 gün</span>
+              <span className="font-normal"> 15 gün</span>
             </p>
-            <button className="rounded-full text-white bg-primaryColor px-10 py-1">
+            <button
+              onClick={() => setTimePopUp(true)}
+              className="rounded-full text-white bg-primaryColor px-10 py-1"
+            >
               + Müddət artır
             </button>
           </div>
@@ -333,7 +341,7 @@ const ShowComplaint = () => {
                   </select>
                 </div>
               </div>
-              <div className="w-[50%] flex flex-col items-start">
+              <div className="w-[50%] flex flex-col gap-2 items-start">
                 <label htmlFor="" className="text-black">
                   <span className="text-[#FF0000]">* </span>
                   Cavablandırılma mətni
@@ -410,17 +418,17 @@ const ShowComplaint = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-baseline items-end justify-end gap-5 lg:gap-10">
-          <button
-            onClick={() => setChoose(true)}
-            className="text-xl flex items-center gap-3 bg-primaryColor px-5 py-3 text-white rounded-lg"
-          >
+        <div  className="flex flex-col lg:flex-row lg:items-baseline items-end justify-end gap-5 lg:gap-10">
+          <button onClick={()=>setAnswer(true)} className="text-xl flex items-center gap-3 bg-primaryColor px-5 py-3 text-white rounded-lg">
             Abunəçiyə cavab göndər
           </button>
         </div>
       </div>
 
-      <AnswerPopUp choose={choose} setChoose={setChoose} />
+      <AnswerPopUp choose={answer} setChoose={setAnswer} />
+      <PopUp choose={choose} setChoose={setChoose} />
+      <TimePopup choose={timePopUp} setChoose={setTimePopUp} />
+
       <div
         className={` fixed inset-0 bg-opacity-45 bg-black z-[9999] flex justify-center items-center ${
           fullScreen ? "flex" : "hidden"

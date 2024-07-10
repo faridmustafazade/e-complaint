@@ -1,13 +1,14 @@
 import CompanyRoot from "../pages/company/CompanyRoot";
 import Icta from "../pages/company/Icta";
-import Isp from "../pages/company/Isp";
 import UserComplaints from "../pages/company/UserComplaints";
 import Home from "../pages/user/Home";
 import MainRoot from "../pages/user/MainRoot";
 import NewComplaint from "../pages/user/NewComplaint";
 import ShowComplaint from "../pages/user/ShowComplaint";
 import ShowComplaintCompany from "../pages/company/ShowComplaint";
-
+import IktaRoot from "../pages/ikta/IktaRoot";
+import Ikta from "../pages/ikta/Icta";
+import İsp from "../pages/ikta/Isp";
 export const ROUTES = [
   {
     element: <MainRoot />,
@@ -29,15 +30,11 @@ export const ROUTES = [
   },
   {
     element: <CompanyRoot />,
-    path: "/company",
+    path: "company",
     children: [
       {
         element: <UserComplaints />,
-        path: "",
-      },
-      {
-        element: <Isp />,
-        path: "isp",
+        path: "user_complaints",
       },
       {
         element: <Icta />,
@@ -46,6 +43,20 @@ export const ROUTES = [
       {
         element: <ShowComplaintCompany />,
         path: "show_complaint",
+      },
+    ],
+  },
+  {
+    element: <IktaRoot />,
+    path: "icta",
+    children: [
+      {
+        element: <Ikta />,
+        path: "",
+      },
+      {
+        element: <İsp />,
+        path: "isp",
       },
     ],
   },

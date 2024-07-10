@@ -4,7 +4,7 @@ import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { NavLink } from "react-router-dom";
-import { FaUsers } from "react-icons/fa";
+import { TbMessageCirclePin } from "react-icons/tb";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
 
@@ -44,38 +44,37 @@ const Sidebar = () => {
 
           <div className="mt-10 flex flex-col gap-3">
             <NavLink
-              to={"user_complaints"}
+              to={"isp"}
               className={({ isActive }) =>
                 isActive
-                  ? "has-tooltip bg-primaryColor relative cursor-pointer group text-white flex p-3  mx-3 rounded-md"
-                  : "has-tooltip relative cursor-pointer flex p-3 group bg-white mx-3 rounded-md hover:bg-primaryColor  transition-all ease-linear duration-300"
+                  ? "has-tooltip relative cursor-pointer text-white group bg-primaryColor flex p-3  mx-3 rounded-md"
+                  : "has-tooltip relative cursor-pointer flex p-3 bg-white mx-3 rounded-md group hover:bg-primaryColor transition-all ease-linear duration-300"
               }
               onClick={() => setClick(false)}
             >
               <div className="has-tooltip flex">
                 {!click && (
-                  <span className="md:block hidden px-4 py-2 shadow tooltip w-48 text-sm text-center top-[4px] text-black translate-x-12 rounded p-1 bg-white">
-                    Abunəçi şikayətləri
+                  <span className="md:block hidden px-4 py-2 shadow tooltip w-52 text-sm text-center top-[4px] translate-x-12 rounded p-1 bg-white text-black">
+                    ISP-lərdən daxil olanlar
                   </span>
                 )}
-                <FaUsers className="w-5 h-5 rounded-md group-hover:text-white transition-all" />
+                <TbMessageCirclePin className="w-5 h-5 rounded-md group-hover:text-white transition-all" />
                 <div
                   className={`
-                  flex justify-between items-center
-                  overflow-hidden group-hover:text-white transition-all ${
-                    click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
-                  }
+              flex justify-between items-center
+              overflow-hidden transition-all ${
+                click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+              }
           `}
                 >
                   <div className="leading-4">
                     <h4 className="w-44 max-w-44 text-sm">
-                      Abunəçi şikayətləri
+                      ISP-lərdən daxil olanlar
                     </h4>
                   </div>
                 </div>
               </div>
             </NavLink>
-
             <NavLink
               to={"icta"}
               className={({ isActive }) =>

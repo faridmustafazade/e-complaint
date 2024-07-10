@@ -7,66 +7,11 @@ import TableData from "../../components/TableData";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 // import { Link } from "react-router-dom";
 import { User_Complaint } from "../../data/Complaint";
+import TableHeader from "../../components/company/TableHeader";
+import TableCols from "../../components/company/TableCols";
 
 const UserComplaints = () => {
   const complaints = User_Complaint;
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [search, setSearch] = useState("");
-  // const [sortOrder, setSortOrder] = useState("");
-  const [sortBy, setSortBy] = useState("");
-  console.log(setSortBy);
-  // const handleSort = (column) => {
-  //   if (column === sortBy) {
-  //     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-  //   } else {
-  //     setSortBy(column);
-  //     setSortOrder("asc");
-  //   }
-  // };
-
-  // const filteredComplaints = useMemo(() => {
-  //   if (!search) return complaints;
-  //   return complaints.filter((item) => {
-  //     return (
-  //       item?.complaint_number?.toString().includes(search) ||
-  //       item?.company?.toLowerCase().includes(search?.toLowerCase()) ||
-  //       item?.field_of_action?.toLowerCase().includes(search?.toLowerCase()) ||
-  //       item?.subject?.toLowerCase().includes(search?.toLowerCase()) ||
-  //       item?.subscriber_code?.toLowerCase().includes(search?.toLowerCase()) ||
-  //       item?.status?.toLowerCase().includes(search?.toLowerCase()) ||
-  //       item?.date?.toLowerCase().includes(search?.toLowerCase())
-  //     );
-  //   });
-  // }, [search, complaints]);
-
-  // const sortedComplaints = useMemo(() => {
-  //   let sortedData = [...filteredComplaints];
-  //   if (sortBy && sortOrder) {
-  //     sortedData.sort((a, b) => {
-  //       const first = a[sortBy];
-  //       const second = b[sortBy];
-  //       if (sortOrder === "asc") {
-  //         if (first < second) return -1;
-  //         if (first > second) return 1;
-  //         return 0;
-  //       } else {
-  //         if (first > second) return -1;
-  //         if (first < second) return 1;
-  //         return 0;
-  //       }
-  //     });
-  //   }
-  //   return sortedData;
-  // }, [filteredComplaints, sortBy, sortOrder]);
-
-  // const complaintsPerPage = 10;
-  // const totalPages = Math.ceil(sortedComplaints.length / complaintsPerPage);
-
-  // const paginatedComplaints = useMemo(() => {
-  //   const start = (currentPage - 1) * complaintsPerPage;
-  //   const end = start + complaintsPerPage;
-  //   return sortedComplaints.slice(start, end);
-  // }, [currentPage, sortedComplaints]);
 
   return (
     <>
@@ -85,82 +30,33 @@ const UserComplaints = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-md mt-10 lg:overflow-hidden overflow-x-scroll">
-          <div className="cursor-pointer flex items-center justify-between bg-primaryColor text-white lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
-            <TableName
-              name={"№"}
-              width={12}
-              // onClick={() => handleSort("complaint_number")}
-              // title={"complaint_number"}
-              // sortOrder={sortOrder}
-              sortBy={sortBy}
-            />
-            <TableName
-              name={"Abunəçi"}
-              width={16}
-              // onClick={() => handleSort("field_of_action")}
-              // title={"field_of_action"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Abunəçi kodu"}
-              width={10}
-              // onClick={() => handleSort("company")}
-              // title={"company"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Xarakteristika"}
-              width={13}
-              // onClick={() => handleSort("subject")}
-              // title={"subject"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Tarix"}
-              width={13}
-              // onClick={() => handleSort("subscriber_code")}
-              // title={"subscriber_code"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
-            <TableName
-              name={"İcra üçün müddət"}
-              width={14}
-              // onClick={() => handleSort("status")}
-              // title={"status"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Status"}
-              width={10}
-              // onClick={() => handleSort("date")}
-              // title={"date"}
-              sortBy={sortBy}
-              // sortOrder={sortOrder}
-            />
+          <div className="cursor-pointer flex items-center justify-between bg-primaryColor text-white    lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
+            <TableHeader name={"№"} width={"w-[7%]"} />
+            <TableHeader name={"Abunəçi"} width={"w-[20%]"} />
+            <TableHeader name={"Abunəçi kodu"} width={"w-[13%]"} />
+            <TableHeader name={"Xarakteristika"} width={"w-[15%]"} />
+            <TableHeader name={"Tarix"} width={"w-[9%]"} />
+            <TableHeader name={"İcra üçün müddət"} width={"w-[15%]"} />
+            <TableHeader name={"Status"} width={"w-[9%]"} />
             <div className="max-w-[12%] w-[12%] flex items-center justify-center py-5">
               <p>Əməliyyatlar</p>
             </div>
           </div>
-          <div className=" lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
+          <div className="lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
             {complaints.length > 0 ? (
               complaints.map((complaint, idx) => (
-                <TableData
+                <TableCols
                   watch={complaint.watch}
                   key={idx}
-                  complaint_number={complaint.number}
-                  field_of_action={complaint.abonent}
-                  company={complaint.abuneci_kodu}
-                  subject={complaint.xarakteristika}
-                  subscriber_code={complaint.tarix}
-                  status={complaint.icra_üçün_müddət}
-                  date={complaint.status}
+                  number={complaint.number}
+                  abonent={complaint.abonent}
+                  abuneci_kodu={complaint.abuneci_kodu}
+                  xarakteristika={complaint.xarakteristika}
+                  tarix={complaint.tarix}
+                  icra_ucun_muddet={complaint.icra_üçün_müddət}
+                  status={complaint.status}
                   icra={complaint.icra}
-                  url={"show_complaint"}
+                  url={"/company/show_complaint"}
                 />
               ))
             ) : (
@@ -171,44 +67,18 @@ const UserComplaints = () => {
           </div>
         </div>
         <div className="select-none flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between mt-5">
-          <p>
-            Göstərilən:{" "}
-            {/* {paginatedComplaints.length > 0
-              ? (currentPage - 1) * complaintsPerPage + 1
-              : 0}
-            -
-            {currentPage * complaintsPerPage > sortedComplaints.length
-              ? sortedComplaints.length
-              : currentPage * complaintsPerPage}
-            , cəmi {sortedComplaints.length} ({totalPages} səhifə) */}
-          </p>
+          <p>Göstərilən: 0-0 , cəmi 0 (0 səhifə)</p>
           <div className="flex items-center gap-1">
             <button
-              // disabled={currentPage <= 1}
-              className={`p-4 leading-none text-white rounded-md 
-              `}
-              // ${
-              //   currentPage > 1 ? "bg-primaryColor" : "bg-[#96AFD5]"
-              // }
-              // onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              className={`p-4 leading-none text-white rounded-md bg-primaryColor`}
             >
               <IoIosArrowBack className="text-xl" />
             </button>
-            {/* {sortedComplaints.length >= 1 && (
-              <div className="select-none p-4 border leading-none border-primaryColor text-primaryColor rounded-md">
-                {currentPage}
-              </div>
-            )} */}
+            <div className="select-none p-4 border leading-none border-primaryColor text-primaryColor rounded-md">
+              1
+            </div>
             <button
-              // disabled={currentPage >= totalPages}
-              className={`p-4 leading-none text-white rounded-md 
-              `}
-              // ${
-              //   currentPage < totalPages ? "bg-primaryColor" : "bg-[#96AFD5]"
-              // }
-              // onClick={() =>
-              //   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-              // }
+              className={`p-4 leading-none text-white rounded-md bg-primaryColor`}
             >
               <IoIosArrowForward className="text-xl" />
             </button>

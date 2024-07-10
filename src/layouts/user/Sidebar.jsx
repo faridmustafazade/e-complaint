@@ -19,12 +19,16 @@ const Sidebar = () => {
         } fixed top-0 h-screen z-[999] bg-[#eaebed] flex flex-col transition-all duration-1000  border-r shadow`}
       >
         <div>
-          <div className="p-4 pb-2 flex justify-between  items-center">
+          <div
+            className={`p-4 pb-2 flex  items-center ${
+              click ? "justify-between" : "justify-center"
+            }`}
+          >
             <div
               className={`
            flex justify-between items-center
-           overflow-hidden transition-all w-52 ${
-             click ? "ml-3 opacity-100" : "opacity-0"
+           overflow-hidden transition-all ${
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
            }`}
             >
               <img src={logo} className="w-52 max-w-52" alt="" />

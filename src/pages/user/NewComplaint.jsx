@@ -17,7 +17,6 @@ const NewComplaint = () => {
 
   //keyDown function
   const [text, setText] = useState([]);
-  console.log(text.length);
   const onKeyDown = (e) => {
     const { key, ctrlKey } = e;
     const ignoredKeys = [

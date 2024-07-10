@@ -15,7 +15,6 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [sortBy, setSortBy] = useState("");
-  console.log(sortBy);
   const handleSort = (column) => {
     if (column === sortBy) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");

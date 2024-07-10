@@ -364,7 +364,7 @@ const NewComplaint = () => {
                     <>
                       {fileContent.includes("image") ? (
                         <section class="mx-auto w-fit">
-                          <div class="w-72 h-fit group">
+                          <div class=" h-fit group">
                             <div class="relative overflow-hidden rounded-md">
                               <img src={fileContent} alt="" />
 
@@ -385,7 +385,7 @@ const NewComplaint = () => {
                         </section>
                       ) : (
                         <section class="mx-auto w-fit">
-                          <div class="w-72 h-fit group">
+                          <div class=" h-fit group">
                             <div class="relative overflow-hidden rounded-md">
                               <p className="text-center px-2 py-10">
                                 {fileContent}

@@ -103,8 +103,12 @@ const NewComplaint = () => {
             >
               <div className="lg:w-[20%] w-full flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">Şikayət etdiyiniz fəaliyyət sahəsi</label>
+                  <label htmlFor="">
+                    <span className="text-[#FF0000]">*</span>Şikayət etdiyiniz
+                    fəaliyyət sahəsi
+                  </label>
                   <select
+                    required
                     defaultValue={"option"}
                     onChange={(e) => {
                       setType(e.target.value);
@@ -128,9 +132,17 @@ const NewComplaint = () => {
                     className={`${type == null && "text-[#908080]"}`}
                     htmlFor=""
                   >
+                    <span
+                      className={`${
+                        type == null ? "text-[#908080]" : "text-[#FF0000]"
+                      }`}
+                    >
+                      *
+                    </span>
                     Şikayətçi olduğunuz şirkət
                   </label>
                   <select
+                    required
                     defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
@@ -159,9 +171,17 @@ const NewComplaint = () => {
                     className={`${type == null && "text-[#908080]"}`}
                     htmlFor=""
                   >
+                    <span
+                      className={`${
+                        type == null ? "text-[#908080]" : "text-[#FF0000]"
+                      }`}
+                    >
+                      *
+                    </span>
                     Şikayətin xarakteristikası
                   </label>
                   <select
+                    required
                     defaultValue={"option"}
                     disabled={type === null && true}
                     type="text"
@@ -251,8 +271,18 @@ const NewComplaint = () => {
               <div className="lg:w-[40%] w-full flex flex-col gap-4">
                 {type && (type === "telefon" || type === "internet") && (
                   <div className="flex flex-col gap-3">
-                    <label htmlFor="">Abunəçi kodu</label>
+                    <label htmlFor="">
+                      <span
+                        className={`${
+                          type == null ? "text-[#908080]" : "text-[#FF0000]"
+                        }`}
+                      >
+                        *
+                      </span>
+                      Abunəçi kodu
+                    </label>
                     <input
+                      required
                       className=" border p-2 rounded-md"
                       type="text"
                       name=""
@@ -263,7 +293,14 @@ const NewComplaint = () => {
                 )}
                 <div className="flex flex-col gap-3">
                   <label htmlFor="">
-                    Şikayət mətni{" "}
+                    <span
+                      className={`${
+                        type == null ? "text-[#908080]" : "text-[#FF0000]"
+                      }`}
+                    >
+                      *
+                    </span>
+                    Şikayət mətni
                     <span className="text-sm">
                       (Qalan simvol sayı:{" "}
                       <span
@@ -279,6 +316,7 @@ const NewComplaint = () => {
                     </span>
                   </label>
                   <textarea
+                    required
                     rows="10"
                     type="text"
                     name=""
@@ -325,33 +363,44 @@ const NewComplaint = () => {
                   ) : (
                     <>
                       {fileContent.includes("image") ? (
-                        <div className="relative">
-                          <div className="absolute rounded-md group-hover:bg-black group-hover:bg-opacity-70 inset-0 justify-center items-center gap-5 hidden group-hover:flex transition duration-300">
-                            <PiTrashSimpleFill
-                              onClick={() => {
-                                setFileContent(null);
-                              }}
-                              className="text-white text-4xl"
-                            />
-                            <RiFullscreenLine
-                              className="text-white text-4xl"
-                              onClick={() => setChoose(true)}
-                            />
+                        <section class="mx-auto w-fit">
+                          <div class="w-72 h-fit group">
+                            <div class="relative overflow-hidden rounded-md">
+                              <img src={fileContent} alt="" />
+
+                              <div class="absolute h-full w-full bg-black/70 flex gap-10 items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <PiTrashSimpleFill
+                                  onClick={() => {
+                                    setFileContent(null);
+                                  }}
+                                  className="text-white text-4xl"
+                                />
+                                <RiFullscreenLine
+                                  className="text-white text-4xl"
+                                  onClick={() => setChoose(true)}
+                                />
+                              </div>
+                            </div>
                           </div>
-                          <img src={fileContent} alt="" />
-                        </div>
+                        </section>
                       ) : (
-                        <div className="relative">
-                          <div className="absolute rounded-md group-hover:bg-black group-hover:bg-opacity-70 inset-0 justify-center items-center gap-5 hidden group-hover:flex transition ease-in-out duration-300">
-                            <PiTrashSimpleFill
-                              onClick={() => {
-                                setFileContent(null);
-                              }}
-                              className="text-white text-4xl"
-                            />
+                        <section class="mx-auto w-fit">
+                          <div class="w-72 h-fit group">
+                            <div class="relative overflow-hidden rounded-md">
+                              <p className="text-center px-2 py-10">
+                                {fileContent}
+                              </p>
+                              <div class="absolute h-full w-full bg-black/50 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <PiTrashSimpleFill
+                                  onClick={() => {
+                                    setFileContent(null);
+                                  }}
+                                  className="text-white text-4xl"
+                                />
+                              </div>
+                            </div>
                           </div>
-                          <p className="px-2 py-10">{fileContent}</p>
-                        </div>
+                        </section>
                       )}
                     </>
                   )}
@@ -364,8 +413,12 @@ const NewComplaint = () => {
             >
               <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between">
                 <div className="lg:w-[24%] w-full flex flex-col gap-3">
-                  <label htmlFor="">*Şəhəri seçin</label>
+                  <label htmlFor="">
+                    <span className="text-[#FF0000]">*</span>
+                    Şəhəri seçin
+                  </label>
                   <select
+                    required
                     defaultValue={"option"}
                     name=""
                     id=""
@@ -388,7 +441,14 @@ const NewComplaint = () => {
                         : city !== "Baku" && "text-[#908080]"
                     }`}
                   >
-                    *Rayonu seçin
+                    <span
+                      className={`${
+                        city !== "Baku" ? "text-[#908080]" : "text-[#FF0000]"
+                      }`}
+                    >
+                      *
+                    </span>
+                    Rayonu seçin
                   </label>
                   <select
                     defaultValue={"option"}
@@ -418,7 +478,18 @@ const NewComplaint = () => {
                         : "text-[#908080]"
                     }`}
                   >
-                    *Küçəni / Kəndi seçin
+                    <span
+                      className={`${
+                        city !== null
+                          ? city === "Baku" && rayon == null
+                            ? "text-[#908080]"
+                            : "text-[#FF0000]"
+                          : "text-[#908080]"
+                      }`}
+                    >
+                      *
+                    </span>
+                    Küçəni / Kəndi seçin
                   </label>
                   <input
                     value={values}
@@ -451,7 +522,18 @@ const NewComplaint = () => {
                         : city === "Baku" && rayon == null && "text-[#908080]"
                     }`}
                   >
-                    *Yeni küçə / kənd əlavə edin
+                    <span
+                      className={` ${
+                        city !== null
+                          ? city === "Baku" && rayon == null
+                            ? "text-[#908080]"
+                            : "text-[#FF0000]"
+                          : "text-[#908080]"
+                      }`}
+                    >
+                      *
+                    </span>
+                    Yeni küçə / kənd əlavə edin
                   </label>
                   <button
                     disabled={
@@ -493,7 +575,9 @@ const NewComplaint = () => {
               </div>
               <div className="flex flex-col gap-5 lg:gap-0 lg:flex-row justify-between lg:mt-0 mt-5">
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">*Bina / Ev</label>
+                  <label htmlFor="">
+                    <span className="text-[#FF0000]">*</span>Bina / Ev
+                  </label>
                   <input
                     type="number"
                     min={1}
@@ -510,7 +594,9 @@ const NewComplaint = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">Əlaqə nömrəsi</label>
+                  <label htmlFor="">
+                    <span className="text-[#FF0000]">*</span>Əlaqə nömrəsi
+                  </label>
                   <div className="lg:block flex items-center">
                     +994
                     <select
@@ -536,7 +622,9 @@ const NewComplaint = () => {
                   <input type="text" className=" border p-2 rounded-md" />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="">E-poçt</label>
+                  <label htmlFor="">
+                    <span className="text-[#FF0000]">*</span>E-poçt
+                  </label>
                   <input
                     type="text"
                     className="border p-2 rounded-md"

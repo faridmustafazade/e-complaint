@@ -3,8 +3,9 @@ import logo from "../../assets/images/logo.png";
 import { IoMenu } from "react-icons/io5";
 import { BiMenuAltRight } from "react-icons/bi";
 import { TfiMenuAlt } from "react-icons/tfi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUsers } from "react-icons/fa";
+import { CiLogout } from "react-icons/ci";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
 
@@ -42,7 +43,7 @@ const Sidebar = () => {
             </button>
           </div>
 
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="mt-5 flex flex-col gap-3">
             <NavLink
               to={"user_complaints"}
               className={({ isActive }) =>
@@ -77,12 +78,13 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink
-              to={"icta"}
+              to={"icta_complaints"}
               className={({ isActive }) =>
                 isActive
                   ? "has-tooltip relative cursor-pointer text-white group bg-primaryColor flex p-3  mx-3 rounded-md"
                   : "has-tooltip relative cursor-pointer flex p-3 bg-white mx-3 rounded-md group hover:bg-primaryColor transition-all ease-linear duration-300"
               }
+               onClick={() => setClick(false)}
             >
               <div className="has-tooltip flex">
                 {!click && (
@@ -110,6 +112,29 @@ const Sidebar = () => {
           </div>
         </div>
       </aside>
+      <Link
+        to={"https://icta.az/"}
+        className={`fixed bottom-0 left-0 z-[1009] p-4 pb-2 flex  items-center bg-[#e2e3e4] shadow transition-all ease-in-out duration-700 ${
+          click ? "justify-between md:w-[290px] w-full" : "w-[70px]"
+        }`}
+      >
+        <div
+          className={`
+           flex justify-between items-center
+           overflow-hidden transition-all ${
+             click ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"
+           }`}
+        >
+          <p className="w-52 max-w-52 font-semibold" alt="">
+            Çıxış
+          </p>
+        </div>
+        <button className="p-1.5 rounded-lg">
+          <CiLogout
+            className={`text-2xl duration-500 ${click && "rotate-180"}`}
+          />
+        </button>
+      </Link>
     </>
   );
 };

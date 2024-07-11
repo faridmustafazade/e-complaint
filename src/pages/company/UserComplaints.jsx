@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { CiFilter } from "react-icons/ci";
-// import { IoSearch } from "react-icons/io5";
-// import { LuInfo } from "react-icons/lu";
-import TableName from "../../components/TableName";
-import TableData from "../../components/TableData";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import { Link } from "react-router-dom";
 import { User_Complaint } from "../../data/Complaint";
 import TableHeader from "../../components/company/TableHeader";
 import TableCols from "../../components/company/TableCols";
@@ -15,11 +10,6 @@ const UserComplaints = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Şikayətlərim</title>
-        <meta name="description" content="Şikayətlərim" />
-        <meta name="theme-color" content="#ccc" />
-      </Helmet> */}
       <div className="select-none px-5 py-10">
         <div className="flex flex-col lg:flex-row md:items-start lg:items-center sm:justify-between lg:gap-0 gap-5">
           <div className="w-full sm:w-auto flex flex-col sm:flex-row sm:items-center gap-5">

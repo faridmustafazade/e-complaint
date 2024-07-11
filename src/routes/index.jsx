@@ -38,7 +38,7 @@ export const ROUTES = [
       },
       {
         element: <Icta />,
-        path: "icta",
+        path: "icta_complaints",
       },
       {
         element: <ShowComplaintCompany />,
@@ -52,11 +52,11 @@ export const ROUTES = [
     children: [
       {
         element: <Ikta />,
-        path: "",
+        path: "icta_complaints",
       },
       {
         element: <İsp />,
-        path: "isp",
+        path: "isp_complaints",
       },
     ],
   },

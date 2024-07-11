@@ -189,7 +189,7 @@ const ShowComplaint = () => {
           >
             <div className="overflow-hidden flex flex-col lg:flex-row items-start gap-10">
               <div>
-                <div className="flex gap-5 px-10 border-r border-[#DEE2E6]">
+                <div className="flex gap-5 lg:px-10 lg:border-r border-[#DEE2E6]">
                   <div className="flex flex-col justify-around gap-12">
                     <div className="flex flex-col items-end">
                       <span>01.09.2023</span>
@@ -254,7 +254,7 @@ const ShowComplaint = () => {
         </div>
         <div className="rounded-lg shadow">
           <div
-            className={`select-none flex items-center justify-between transition-all duration-300 ease-in-out px-5 p-5`}
+            className={`select-none flex flex-col md:flex-row items-start md:items-center gap-5 lg:gap-0 justify-between transition-all duration-300 ease-in-out px-5 p-5`}
           >
             <p className="font-semibold">
               Şikayət tarixi: <span className="font-normal"> 19.09.2023</span>
@@ -299,7 +299,7 @@ const ShowComplaint = () => {
             }  bg-white`}
           >
             <div className="overflow-hidden flex flex-col lg:flex-row lg:justify-between items-start gap-10">
-              <div className="w-[25%] flex flex-col gap-5">
+              <div className="md:w-[25%] w-full flex flex-col gap-5">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="" className="text-black">
                     <span className="text-[#FF0000]">* </span>
@@ -341,7 +341,7 @@ const ShowComplaint = () => {
                   </select>
                 </div>
               </div>
-              <div className="w-[50%] flex flex-col gap-2 items-start">
+              <div className="md:w-[50%] w-full flex flex-col gap-2 items-start">
                 <label htmlFor="" className="text-black">
                   <span className="text-[#FF0000]">* </span>
                   Cavablandırılma mətni
@@ -354,11 +354,11 @@ const ShowComplaint = () => {
                   className="border w-full rounded-md p-5"
                 />
               </div>
-              <div className="w-[25%]">
+              <div className="md:w-[25%] w-full">
                 <div
                   className={`relative rounded-lg bg-[#F3F3F3] ${
                     fileContent === null ? "lg:pt-20 pt-5" : "pt-5"
-                  } cursor-pointer pb-5 px-5 lg:w-[80%] border flex flex-col items-center gap-3 justify-end group hover:bg-white duration-300`}
+                  } cursor-pointer pb-5 px-5 lg:w-full border flex flex-col items-center gap-3 justify-end group hover:bg-white duration-300`}
                 >
                   {fileContent === null ? (
                     <>
@@ -418,8 +418,11 @@ const ShowComplaint = () => {
             </div>
           </div>
         </div>
-        <div  className="flex flex-col lg:flex-row lg:items-baseline items-end justify-end gap-5 lg:gap-10">
-          <button onClick={()=>setAnswer(true)} className="text-xl flex items-center gap-3 bg-primaryColor px-5 py-3 text-white rounded-lg">
+        <div className="flex flex-col lg:flex-row lg:items-baseline items-end justify-end gap-5 lg:gap-10">
+          <button
+            onClick={() => setAnswer(true)}
+            className="text-xl flex items-center gap-3 bg-primaryColor px-5 py-3 text-white rounded-lg"
+          >
             Abunəçiyə cavab göndər
           </button>
         </div>

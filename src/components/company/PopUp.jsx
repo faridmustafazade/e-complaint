@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LuUpload } from "react-icons/lu";
 import { PiTrashSimpleFill } from "react-icons/pi";
 import { RiFullscreenExitLine, RiFullscreenLine } from "react-icons/ri";
@@ -19,6 +19,26 @@ const PopUp = ({ setChoose, choose }) => {
     }
     setFileContent(selectedFile.name);
   };
+
+  const textareaRef = useRef(null);
+
+  const updateRows = () => {
+    if (window.innerWidth >= 768) {
+      textareaRef.current.rows = 10;
+    } else {
+      textareaRef.current.rows = 1;
+    }
+  };
+
+  useEffect(() => {
+    updateRows();
+    window.addEventListener("resize", updateRows);
+
+    return () => {
+      window.removeEventListener("resize", updateRows);
+    };
+  }, []);
+
   return (
     <>
       <div
@@ -28,10 +48,10 @@ const PopUp = ({ setChoose, choose }) => {
       >
         <div className="bg-white animate-zoom-in w-11/12 lg:w-4/6 overflow-hidden flex flex-col rounded-lg p-8">
           <div className="w-full flex flex-col items-center justify-center gap-5">
-            <p className="text-center text-2xl font-semibold text-[#595959]">
+            <p className="text-center lg:text-2xl text-lg font-semibold text-[#595959]">
               BİRGƏ BAXIŞIN YARADILMASI
             </p>
-            <div className="px-10 w-full flex flex-col gap-5">
+            <div className="lg:px-10 w-full flex flex-col gap-5">
               <div className="w-full flex flex-col gap-3">
                 <label htmlFor="">
                   <span className="text-[#FF0000]">*</span>Şirkət
@@ -48,18 +68,17 @@ const PopUp = ({ setChoose, choose }) => {
                   <option value={1}>ENGINET (BIRLINK)</option>
                 </select>
               </div>
-              <div className="flex items-end justify-between gap-5">
+              <div className="flex flex-col lg:flex-row items-end justify-between gap-5">
                 <div className="w-full flex flex-col gap-3">
                   <label htmlFor="">
                     <span className="text-[#FF0000]">*</span>Qeyd
                   </label>
                   <textarea
                     required
-                    rows="10"
+                    ref={textareaRef}
                     type="text"
                     name=""
                     id=""
-                    placeholder="Maksimum 1000 simvol"
                     className="border rounded-md p-5"
                   />
                 </div>
@@ -70,11 +89,11 @@ const PopUp = ({ setChoose, choose }) => {
                 >
                   {fileContent === null ? (
                     <>
-                      <LuUpload className="text-3xl group-hover:text-[#878787] duration-300" />
-                      <p className="text-2xl group-hover:text-[#878787] duration-300">
+                      <LuUpload className="lg:text-3xl text-xl group-hover:text-[#878787] duration-300" />
+                      <p className="lg:text-2xl text-lg group-hover:text-[#878787] duration-300">
                         Fayl əlavə et
                       </p>
-                      <span className="text-[#878787]">
+                      <span className="text-[#878787] text-sm lg:text-base">
                         Faylları buraya əlavə edin. Faylın ölçüsü maksimum 10 MB
                         həcmində, png, txt, jpeg, jpg, pdf formatında fayl əlavə
                         edə bilərsiniz.

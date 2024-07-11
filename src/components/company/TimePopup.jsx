@@ -7,12 +7,12 @@ const TimePopup = ({ choose, setChoose }) => {
         choose ? "flex bg-opacity-30" : "hidden"
       }`}
     >
-      <div className="bg-white animate-zoom-in w-11/12 lg:w-4/6 overflow-hidden flex flex-col rounded-lg p-8">
+      <div className="bg-white animate-zoom-in w-11/12 lg:w-4/6 overflow-hidden flex flex-col rounded-lg md:p-8 py-8">
         <div className="w-full flex flex-col items-center justify-center gap-5">
           <p className="uppercase text-center text-2xl font-semibold text-[#595959]">
             müddətin artırılması
           </p>
-          <div className="px-10 w-full flex flex-col gap-5">
+          <div className="md:px-10 px-5 w-full flex flex-col gap-5">
             <div className="w-full flex flex-col gap-3">
               <label htmlFor="">
                 <span className="text-[#FF0000]">*</span> Müddətin artırılması

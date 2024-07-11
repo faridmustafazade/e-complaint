@@ -347,7 +347,18 @@ export const User_Complaint = [
     icra: "təkrar şikayət",
   },
 ];
-
+export const Complaint_Detail = [
+  {
+    number: 10234,
+    abonent: "Məmmədov Vüsal Vaqif",
+    company: "“ADANET” MMC",
+    field_of_action: "İnternet (GPON, ADSL və s.)",
+    subject: "Xidmətə qoşulma",
+    abonent_number: "Abunəçi kodu",
+    status: "Baxılır",
+    date: "11.09.2023",
+  },
+];
 export const Field_Of_Action = [
   {
     title: "Internet(GPON, ADSL və s.)",

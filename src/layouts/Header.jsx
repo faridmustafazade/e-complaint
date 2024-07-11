@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import logo from "../assets/images/logo.png";
 import { HiUser } from "react-icons/hi";
 import { RxExit } from "react-icons/rx";

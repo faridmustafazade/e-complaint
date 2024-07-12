@@ -24,14 +24,14 @@ const UserComplaints = () => {
         <div
           className={`grid  overflow-hidden transition-all duration-300 border  my-5 rounded-lg border-[#d7d7d7] ease-in-out  ${
             click
-              ? "grid-rows-[1fr] lg:p-5 opacity-100"
-              : "grid-rows-[0fr] lg:px-5 px-2 opacity-0"
+              ? "grid-rows-[1fr] lg:p-5 p-4 opacity-100"
+              : "grid-rows-[0fr] px-4 opacity-0"
           }  bg-white
         `}
         >
-          <div className="overflow-hidden  bg-white ">
-            <div className="overflow-hidden flex items-start justify-between">
-              <div className="flex flex-col w-[24%] gap-1">
+          <div className="overflow-hidden bg-white">
+            <div className="overflow-hidden flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-0 gap-5">
+              <div className="flex flex-col lg:w-[24%] gap-1">
                 <label htmlFor="">Müraciət nömrəsi</label>
                 <input
                   className="border outline-none border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -40,7 +40,7 @@ const UserComplaints = () => {
                   id=""
                 />
               </div>
-              <div className="flex flex-col w-[24%] gap-1">
+              <div className="flex flex-col lg:w-[24%] gap-1">
                 <label htmlFor="">Müraciətin tarixi</label>
                 <div className="flex items-center gap-3">
                   <input
@@ -60,7 +60,7 @@ const UserComplaints = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col w-[24%] gap-1">
+              <div className="flex flex-col lg:w-[24%] gap-1">
                 <label htmlFor="">Müraciətin statusu</label>
                 <select
                   className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -77,7 +77,7 @@ const UserComplaints = () => {
                   <option value="">Rədd edilib (əsassız sayılıb)</option>
                 </select>
               </div>
-              <div className="flex flex-col w-[24%] gap-1">
+              <div className="flex flex-col lg:w-[24%] gap-1">
                 <label htmlFor="">Təkrar şikayət</label>
                 <select
                   className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -97,8 +97,8 @@ const UserComplaints = () => {
             </div>
             <div className="bg-[#d7d7d7] h-[1px] w-full my-10"></div>
             <div className="flex flex-col gap-5">
-              <div className="flex items-start justify-between">
-                <div className="flex flex-col w-[24%] gap-1">
+              <div className="overflow-hidden flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-0 gap-5">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Abunəçinin FİN-i</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -107,7 +107,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Abunəçinin adı</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -116,7 +116,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Abunəçinin soyadı</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -125,7 +125,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Abunəçinin ata adı</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -135,8 +135,8 @@ const UserComplaints = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-start justify-between">
-                <div className="flex flex-col w-[24%] gap-1">
+              <div className="overflow-hidden flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-0 gap-5">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Şəhər</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -151,7 +151,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Rayon</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -166,7 +166,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Küçə</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -181,8 +181,8 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex w-[24%] justify-between">
-                  <div className=" flex flex-col gap-1 w-[45%]">
+                <div className="flex flex-col lg:w-[24%] lg:gap-1 gap-5">
+                  <div className=" flex flex-col gap-1 lg:w-[45%]">
                     <label htmlFor="">Bina</label>
                     <input
                       className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -191,7 +191,7 @@ const UserComplaints = () => {
                       id=""
                     />
                   </div>
-                  <div className=" flex flex-col gap-1 w-[45%]">
+                  <div className=" flex flex-col gap-1 lg:w-[45%]">
                     <label htmlFor="">Mənzil</label>
                     <input
                       className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -202,8 +202,8 @@ const UserComplaints = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-5 justify-start">
-                <div className="flex flex-col w-[24%] gap-1">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-5 justify-start">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Əlaqə nömrəsi</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -212,7 +212,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Stasionar telefon</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -221,7 +221,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">E-poçt</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -234,8 +234,8 @@ const UserComplaints = () => {
             </div>
             <div className="bg-[#d7d7d7] h-[1px] w-full my-10"></div>
             <div className="flex flex-col gap-5">
-              <div className="flex items-start justify-between">
-                <div className="flex flex-col w-[24%] gap-1">
+              <div className="overflow-hidden flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-0 gap-5">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Şikayət edilən fəaliyyət sahəsi</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -250,7 +250,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Şikayətçi olan şirkət</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -265,7 +265,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Şikayətin xarakteristikası</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -280,7 +280,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Şikayətin mövzusu</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -296,8 +296,8 @@ const UserComplaints = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex items-start justify-between">
-                <div className="flex flex-col w-[24%] gap-1">
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 lg:gap-0">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Abunəçi kodu</label>
                   <input
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -306,7 +306,7 @@ const UserComplaints = () => {
                     id=""
                   />
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Faylın mövcudluğu</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -321,7 +321,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Birgə baxılmanın mövcudluğu</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"
@@ -336,7 +336,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col w-[24%] gap-1">
+                <div className="flex flex-col lg:w-[24%] gap-1">
                   <label htmlFor="">Birgə baxan şirkət</label>
                   <select
                     className="border outline-none text-[#a39898] border-[#d7d7d7] rounded-lg px-5 py-1"

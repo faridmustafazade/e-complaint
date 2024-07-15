@@ -17,47 +17,47 @@ const NewComplaint = () => {
 
   //keyDown function
   const [text, setText] = useState([]);
-  const onKeyDown = (e) => {
-    const { key, ctrlKey } = e;
-    const ignoredKeys = [
-      "Backspace",
-      "Delete",
-      "Alt",
-      "CapsLock",
-      "ArrowLeft",
-      "ArrowRight",
-      "ArrowUp",
-      "ArrowDown",
-      "Control",
-      "Tab",
-      "Enter",
-      "Shift",
-    ];
-    if (text.length < 1000) {
-      if (!ignoredKeys.includes(key)) {
-        if (ctrlKey && key.toLowerCase() === "a") {
-          return;
-        }
-        if (key.toLowerCase() === "c") {
-          return;
-        }
-        if (key.toLowerCase() === "v") {
-          return;
-        }
-        if (key.toLowerCase() === "z") {
-          return;
-        }
-        if (key.toLowerCase() === "x") {
-          return;
-        } else {
-          setText((prevText) => [...prevText, key]);
-        }
-      } else if (key === "Backspace") {
-        setText((prevText) => prevText.slice(0, -1));
-      }
-    }
-    return;
-  };
+  // const onKeyDown = (e) => {
+  //   const { key, ctrlKey } = e;
+  //   const ignoredKeys = [
+  //     "Backspace",
+  //     "Delete",
+  //     "Alt",
+  //     "CapsLock",
+  //     "ArrowLeft",
+  //     "ArrowRight",
+  //     "ArrowUp",
+  //     "ArrowDown",
+  //     "Control",
+  //     "Tab",
+  //     "Enter",
+  //     "Shift",
+  //   ];
+  //   if (text.length < 1000) {
+  //     if (!ignoredKeys.includes(key)) {
+  //       if (ctrlKey && key.toLowerCase() === "a") {
+  //         return;
+  //       }
+  //       if (key.toLowerCase() === "c") {
+  //         return;
+  //       }
+  //       if (key.toLowerCase() === "v") {
+  //         return;
+  //       }
+  //       if (key.toLowerCase() === "z") {
+  //         return;
+  //       }
+  //       if (key.toLowerCase() === "x") {
+  //         return;
+  //       } else {
+  //         setText((prevText) => [...prevText, key]);
+  //       }
+  //     } else if (key === "Backspace") {
+  //       setText((prevText) => prevText.slice(0, -1));
+  //     }
+  //   }
+  //   return;
+  // };
 
   //data
   const [fields, setFields] = useState([]);
@@ -327,9 +327,9 @@ const NewComplaint = () => {
                         setText(value);
                       }
                     }}
-                    onKeyDown={onKeyDown}
+                    // onKeyDown={onKeyDown}
                     placeholder="Maksimum 1000 simvol"
-                    className="border rounded-md p-5"
+                    className="resize-none outline-none border rounded-md p-5"
                   />
                 </div>
               </div>

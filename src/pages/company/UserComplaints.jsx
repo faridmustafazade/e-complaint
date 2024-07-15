@@ -42,18 +42,19 @@ const UserComplaints = () => {
               </div>
               <div className="flex flex-col lg:w-[24%] gap-1">
                 <label htmlFor="">Müraciətin tarixi</label>
+                
                 <div className="flex items-center gap-3">
                   <input
-                    className="w-[49%] outline-none border border-[#d7d7d7] rounded-lg px-5 py-1"
-                    type="number"
+                    className="select-none w-[49%] outline-none border border-[#d7d7d7] rounded-lg px-5 py-1"
+                    type="date"
                     name=""
                     id=""
                     placeholder="Başlanğıc"
                   />
                   <div>-</div>
                   <input
-                    className="w-[49%] outline-none border border-[#d7d7d7] rounded-lg px-5 py-1"
-                    type="number"
+                    className="select-none w-[49%] outline-none border border-[#d7d7d7] rounded-lg px-5 py-1"
+                    type="date"
                     name=""
                     id=""
                     placeholder="Son"
@@ -181,7 +182,7 @@ const UserComplaints = () => {
                     <option value="">Lənkəran</option>
                   </select>
                 </div>
-                <div className="flex flex-col lg:w-[24%] lg:gap-1 gap-5">
+                <div className="flex flex-col lg:flex-row lg:justify-between lg:w-[24%] lg:gap-1 gap-5">
                   <div className=" flex flex-col gap-1 lg:w-[45%]">
                     <label htmlFor="">Bina</label>
                     <input

@@ -9,12 +9,14 @@ import { Complaint } from "../../data/Complaint";
 import TableName from "../../components/TableName";
 import TableData from "../../components/TableData";
 import { Helmet } from "react-helmet";
+
 const Home = () => {
   const complaints = Complaint;
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [sortBy, setSortBy] = useState("");
+
   const handleSort = (column) => {
     if (column === sortBy) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -103,91 +105,87 @@ const Home = () => {
             />
           </div>
         </div>
-
-        <div className="bg-white rounded-lg shadow-md mt-10 lg:overflow-hidden overflow-x-scroll">
-          <div className="cursor-pointer flex items-center justify-between bg-primaryColor text-white lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
-            <TableName
-              name={"Şikayət nömrəsi"}
-              width={12}
-              onClick={() => handleSort("complaint_number")}
-              title={"complaint_number"}
-              sortOrder={sortOrder}
-              sortBy={sortBy}
-            />
-            <TableName
-              name={"Fəaliyyət sahəsi"}
-              width={16}
-              onClick={() => handleSort("field_of_action")}
-              title={"field_of_action"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Şirkət"}
-              width={10}
-              onClick={() => handleSort("company")}
-              title={"company"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Mövzu"}
-              width={13}
-              onClick={() => handleSort("subject")}
-              title={"subject"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Abunəçi kodu"}
-              width={13}
-              onClick={() => handleSort("subscriber_code")}
-              title={"subscriber_code"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Status"}
-              width={14}
-              onClick={() => handleSort("status")}
-              title={"status"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <TableName
-              name={"Tarix"}
-              width={10}
-              onClick={() => handleSort("date")}
-              title={"date"}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-            />
-            <div className="max-w-[12%] w-[12%] flex items-center justify-center py-5">
-              <p>Əməliyyatlar</p>
-            </div>
-          </div>
-          <div className=" lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
-            {paginatedComplaints.length > 0 ? (
-              paginatedComplaints.map((complaint, idx) => (
-                <TableData
-                  key={idx}
-                  complaint_number={complaint.complaint_number}
-                  field_of_action={complaint.field_of_action}
-                  company={complaint.company}
-                  subject={complaint.subject}
-                  subscriber_code={complaint.subscriber_code}
-                  status={complaint.status}
-                  date={complaint.date}
-                  url={"show_complaint"}
+        <div className="overflow-x-auto mt-10 rounded-md shadow overflow-hidden">
+          <table className="bg-white lg:min-w-[100%] min-w-[1400px] lg:max-w-[100%] max-w-[2000px]">
+            <thead className="cursor-pointer bg-primaryColor text-white ">
+              <tr>
+                <TableName
+                  name={"Şikayət nömrəsi"}
+                  onClick={() => handleSort("complaint_number")}
+                  title={"complaint_number"}
+                  sortOrder={sortOrder}
+                  sortBy={sortBy}
                 />
-              ))
-            ) : (
-              <div className="w-full flex justify-center items-center py-5">
-                <p>Heç bir şikayət əlavə edilməyib...</p>
-              </div>
-            )}
-          </div>
+                <TableName
+                  name={"Fəaliyyət sahəsi"}
+                  onClick={() => handleSort("field_of_action")}
+                  title={"field_of_action"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <TableName
+                  name={"Şirkət"}
+                  onClick={() => handleSort("company")}
+                  title={"company"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <TableName
+                  name={"Mövzu"}
+                  onClick={() => handleSort("subject")}
+                  title={"subject"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <TableName
+                  name={"Abunəçi kodu"}
+                  onClick={() => handleSort("subscriber_code")}
+                  title={"subscriber_code"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <TableName
+                  name={"Status"}
+                  onClick={() => handleSort("status")}
+                  title={"status"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <TableName
+                  name={"Tarix"}
+                  onClick={() => handleSort("date")}
+                  title={"date"}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                />
+                <th className="py-5 " scope="col">
+                  Əməliyyat
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {paginatedComplaints.length > 0 ? (
+                paginatedComplaints.map((item, idx) => (
+                  <TableData
+                    complaint_number={item.complaint_number}
+                    field_of_action={item.field_of_action}
+                    company={item.company}
+                    subject={item.subject}
+                    subscriber_code={item.subscriber_code}
+                    status={item.status}
+                    date={item.date}
+                    url={"show_complaint"}
+                  />
+                ))
+              ) : (
+                <div className="w-full flex justify-center items-center py-5">
+                  <p>Heç bir şikayət əlavə edilməyib...</p>
+                </div>
+              )}
+            </tbody>
+          </table>
         </div>
+
         <div className="select-none flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between mt-5">
           <p>
             Göstərilən:{" "}
